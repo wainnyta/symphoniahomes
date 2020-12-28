@@ -5,50 +5,59 @@ import {
   List,
   ListIcon,
   ListItem,
-} from '@chakra-ui/react'
-import { CheckCircleIcon, LinkIcon } from '@chakra-ui/icons'
-import { Hero } from '../components/Hero'
-import { Container } from '../components/Container'
-import { Main } from '../components/Main'
-import { DarkModeSwitch } from '../components/DarkModeSwitch'
-import { CTA } from '../components/CTA'
-import { Footer } from '../components/Footer'
+  Container,
+  Stack,
+  Flex,
+  AspectRatio,
+  Image,
+} from '@chakra-ui/react';
+import { Hero } from '../components/Hero';
+import { HomepageHero } from '../components/Homepage.Hero';
+import { HomepageWhyUs } from '../components/Homepage.WhyUs';
+import Navbar from '../components/layout/Navbar';
 
 const Index = () => (
-  <Container height="100vh">
-    <Hero />
-    <Main>
-      <Text>
-        Example repository of <Code>Next.js</Code> + <Code>chakra-ui</Code>.
-      </Text>
+  <>
+    <div style={styles.header}>
+      <div style={styles.content}>
+        <Container maxWidth="1600px" margin="auto">
+          <Navbar
+            bgColor="transparent"
+            textColor="white"
+            ctaBackgroundColor="teal.400"
+            ctaColor="white"
+            ctaBorderColor="teal.400"
+            bottomBordered={true}
+          />
+          <HomepageHero bgColor="transparent" />
+        </Container>
+      </div>
+    </div>
+    <Container maxW="1600px" margin="auto">
+      {/* <HomepageWhyUs /> */}
+    </Container>
+  </>
+);
 
-      <List spacing={3} my={0}>
-        <ListItem>
-          <ListIcon as={CheckCircleIcon} color="green.500" />
-          <ChakraLink
-            isExternal
-            href="https://chakra-ui.com"
-            flexGrow={1}
-            mr={2}
-          >
-            Chakra UI <LinkIcon />
-          </ChakraLink>
-        </ListItem>
-        <ListItem>
-          <ListIcon as={CheckCircleIcon} color="green.500" />
-          <ChakraLink isExternal href="https://nextjs.org" flexGrow={1} mr={2}>
-            Next.js <LinkIcon />
-          </ChakraLink>
-        </ListItem>
-      </List>
-    </Main>
+const backgroundURL = '/images/ProjectCapulet/10-Kitchen2.jpg';
+const styles = {
+  header: {
+    backgroundImage: `url(${backgroundURL})`,
+    minHeight: '80vh',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  },
+  content: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.85)',
+    align: 'center',
+  },
+  container: {
+    width: '80%',
+    margin: 'auto',
+  },
+};
 
-    <DarkModeSwitch />
-    <Footer>
-      <Text>Next ❤️ Chakra</Text>
-    </Footer>
-    <CTA />
-  </Container>
-)
-
-export default Index
+export default Index;
