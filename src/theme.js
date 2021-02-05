@@ -14,7 +14,18 @@ const breakpoints = createBreakpoints({
 
 const theme = extendTheme({
   colors: {
-    black: '#16161D',
+    myblack: {
+      50: '#a1a6ae',
+      100: '#8e949e',
+      200: '#7b828e',
+      300: '#68717d',
+      400: '#555f6d',
+      500: '#424d5d',
+      600: '#353e4a',
+      700: '#2e3641',
+      800: '#282e38',
+      900: '#14171c',
+    },
   },
   fonts,
   breakpoints,
@@ -36,6 +47,37 @@ const theme = extendTheme({
         </svg>
       ),
       viewBox: '0 0 3000 3163',
+    },
+  },
+  components: {
+    Button: {
+      variants: {
+        appdark: ({ colorScheme = 'teal', fontSize, fontWeight }) => ({
+          height: '50px',
+          lineHeight: '1.2',
+          px: '1rem',
+          bg: `${colorScheme}.500`,
+          fontSize: fontSize || '1rem',
+          fontWeight: fontWeight || 500,
+          color: 'white',
+          _hover: {
+            bg: `${colorScheme}.600`,
+            color: 'white',
+            fontWeight: 'semibold',
+          },
+        }),
+        appOutline: (props) => ({
+          color: `${props.colorScheme}.500`,
+          borderWidth: '1px',
+          borderColor: `${props.colorScheme}.300`,
+          _hover: {
+            bg: 'transparent',
+            borderWidth: '1px',
+            borderColor: `${props.colorScheme}.700`,
+            color: `${props.colorScheme}.800`,
+          },
+        }),
+      },
     },
   },
 });

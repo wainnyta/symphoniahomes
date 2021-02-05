@@ -1,5 +1,7 @@
 import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
 import theme from '../theme';
+import 'swiper/swiper-bundle.min.css';
+import '../../src/styles.css';
 
 function MyApp({ Component, pageProps }) {
   return (

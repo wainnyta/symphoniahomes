@@ -1,24 +1,15 @@
-import {
-  Link as ChakraLink,
-  Text,
-  Code,
-  List,
-  ListIcon,
-  ListItem,
-  Container,
-  Stack,
-  Flex,
-  AspectRatio,
-  Image,
-} from '@chakra-ui/react';
-import { Hero } from '../components/Hero';
+import { Container } from '@chakra-ui/react';
+import { HomepageContact } from '../components/Homepage.Contact';
+import { HomepageFooter } from '../components/Homepage.Footer';
+import { HomepageForm } from '../components/Homepage.Form';
+import { HomepageGallery } from '../components/Homepage.Gallery';
 import { HomepageHero } from '../components/Homepage.Hero';
-import { HomepageWhyUs } from '../components/Homepage.WhyUs';
+import { HomepageHowItWorks } from '../components/Homepage.HowItWorks';
 import Navbar from '../components/layout/Navbar';
 
 const Index = () => (
   <>
-    <div style={styles.header}>
+    <header style={styles.header}>
       <div style={styles.content}>
         <Container maxWidth="1600px" margin="auto">
           <Navbar
@@ -32,10 +23,20 @@ const Index = () => (
           <HomepageHero bgColor="transparent" />
         </Container>
       </div>
-    </div>
-    <Container maxW="1600px" margin="auto">
+    </header>
+    <main>
+      <section style={styles.main}>
+        <HomepageHowItWorks />
+      </section>
+      <section style={{ backgroundColor: 'white' }}>
+        <HomepageContact />
+      </section>
+      <section style={{ backgroundColor: '#fdfdfd' }}>
+        <HomepageGallery />
+      </section>
       {/* <HomepageWhyUs /> */}
-    </Container>
+    </main>
+    <HomepageFooter />
   </>
 );
 
@@ -57,6 +58,9 @@ const styles = {
   container: {
     width: '80%',
     margin: 'auto',
+  },
+  main: {
+    backgroundColor: '#f6f6f6',
   },
 };
 

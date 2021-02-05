@@ -10,18 +10,24 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import Link from 'next/link';
+import { isBrowser, isMobile, isTablet } from 'react-device-detect';
 
-const MenuItems = ({ textColor, children }) => (
-  <Text
-    fontFamily="fantasy"
-    fontSize="lg"
-    mt={{ base: 4, md: 0 }}
-    mr={10}
-    display="block"
-    color={textColor || 'gray.800'}
-  >
-    {children}
-  </Text>
+const MenuItems = ({ textColor, children, href }) => (
+  <Link href={href}>
+    <a>
+      <Text
+        fontFamily="fantasy"
+        fontSize="lg"
+        mt={{ base: 4, md: 0 }}
+        mr={10}
+        display="block"
+        color={textColor || 'gray.800'}
+      >
+        {children}
+      </Text>
+    </a>
+  </Link>
 );
 
 const Navbar = ({
@@ -44,8 +50,7 @@ const Navbar = ({
       <Flex
         as="nav"
         wrap="wrap"
-        paddingY=""
-        paddingX="3.0rem"
+        paddingX={isBrowser ? '1.2rem' : '1.2rem'}
         bg={bgColor || 'white'}
         color="white"
         pt={10}
@@ -86,9 +91,18 @@ const Navbar = ({
           width={{ sm: 'full', md: 'auto' }}
           alignItems="center"
         >
-          <MenuItems textColor={textColor}>Portfolio</MenuItems>
-          <MenuItems textColor={textColor}>Our Story</MenuItems>
-          <MenuItems textColor={textColor}>Contact Us</MenuItems>
+          <MenuItems textColor={textColor} href="/">
+            Home
+          </MenuItems>
+          <MenuItems textColor={textColor} href="/portfolio2">
+            Portfolio
+          </MenuItems>
+          <MenuItems textColor={textColor} href="#">
+            Our Story
+          </MenuItems>
+          <MenuItems textColor={textColor} href="#">
+            Contact Us
+          </MenuItems>
           <Box
             display={{ sm: show ? 'block' : 'none', md: 'block' }}
             mt={{ base: 4, md: 0 }}
@@ -106,7 +120,6 @@ const Navbar = ({
           </Box>
         </Box>
       </Flex>
-      {bottomBordered && <></>}
     </>
   );
 };
