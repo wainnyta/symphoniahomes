@@ -1,4 +1,5 @@
 import { AspectRatio, Box, Flex } from '@chakra-ui/react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { AppButton } from '../AppButton';
@@ -30,15 +31,6 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
   function showImage(change, direction) {
     let newIndex = Math.abs(displayIndex + change) % 2;
     setDisplayIndex(newIndex);
-    // setFadeImage(false);
-    // setFadeImage(true);
-    if (newIndex === 0) {
-      setShowBeforePicture(false);
-      setShowAfterPicture(true);
-    } else {
-      setShowAfterPicture(false);
-      setShowBeforePicture(true);
-    }
   }
 
   const renderImage = () => {
@@ -66,8 +58,20 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
               </AppButton>
               {/* {renderImageTag()} */}
               <img
-                src={getCurrentImage()}
-                style={{ objectFit: 'cover', width: '100%' }}
+                src={contentToShow.src}
+                style={{
+                  objectFit: 'cover',
+                  width: '100%',
+                  display: displayIndex === 0 ? 'inline-block' : 'none',
+                }}
+              />
+              <img
+                src={contentToShow.src2}
+                style={{
+                  objectFit: 'cover',
+                  width: '100%',
+                  display: displayIndex === 1 ? 'inline-block' : 'none',
+                }}
               />
               <AppButton
                 height="100%"
