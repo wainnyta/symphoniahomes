@@ -17,14 +17,15 @@ const StepItem = ({ image, title, description }) => {
       borderRadius="1rem"
       //boxShadow="5px 2px 10px 5px #f4f4f4"
     >
-      <Box minW={{ md: '40%', xl: '0rem' }}>
-        <Image
-          src={image}
-          alt={title}
-          padding={{ xl: '1rem', xs: '0' }}
-          maxH={'13rem'}
-          minH="13rem"
-        />
+      <Box minW={{ md: '40%', xl: '0rem' }} padding={{ xl: '1rem', xs: 0 }}>
+        <img src={image} alt={title} />
+        {/* // <Image
+        //   src={image}
+        //   alt={title}
+        //   padding={{ xl: '1rem', xs: '0' }}
+        //   maxH={'13rem'}
+        //   minH="13rem"
+        // /> */}
       </Box>
 
       <Box
