@@ -48,7 +48,7 @@ export const HomepageGallery = () => {
           mx="10px"
           onClick={() => {
             setviewGalleryIsLoading(true);
-            router.push('/portfolio2');
+            router.push('/portfolio');
           }}
           isLoading={viewGalleryIsLoading}
         >

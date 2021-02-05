@@ -147,7 +147,7 @@ export const HomepageHero = ({ bgColor }) => {
             color="white"
             onClick={() => {
               setViewGalleryIsLoading(true);
-              router.push('/portfolio2');
+              router.push('/portfolio');
             }}
           >
             See Our Work
