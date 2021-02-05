@@ -48,22 +48,22 @@ button:focus {
 }
 
 .bas-img-show {
-  opacity: 1;
+  display: inline-block;
 }
 .bas-img-hide {
-  opacity: 0;
+  display: none;
 }
 
 .bas-img-before-show {
-  transform: translateX(0%);
+  /* transform: translateX(0%); */
 }
 .bas-img-before-hide {
-  transform: translateX(-100%);
+  /* transform: translateX(-100%); */
 }
 
 .bas-img-after-show {
-  transform: translateX(-100%);
+  /* transform: translateX(-100%); */
 }
 .bas-img-after-hide {
-  transform: translateX(0%);
+  /* transform: translateX(0%); */
 }

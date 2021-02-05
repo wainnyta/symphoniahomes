@@ -79,22 +79,32 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
               </AppButton>
               {/* {renderImageTag()} */}
 
-              <img
+              <AspectRatio
+                ratio={5 / 3.3}
+                width="100%"
                 className={getClassName(0)}
-                src={contentToShow.src}
-                style={{
-                  objectFit: 'cover',
-                  width: '100%',
-                }}
-              />
-              <img
+              >
+                <img
+                  src={contentToShow.src}
+                  style={{
+                    objectFit: 'cover',
+                    width: '100%',
+                  }}
+                />
+              </AspectRatio>
+              <AspectRatio
+                ratio={5 / 3.3}
+                width="100%"
                 className={getClassName(1)}
-                src={contentToShow.src2}
-                style={{
-                  objectFit: 'cover',
-                  width: '100%',
-                }}
-              />
+              >
+                <img
+                  src={contentToShow.src2}
+                  style={{
+                    objectFit: 'cover',
+                    width: '100%',
+                  }}
+                />
+              </AspectRatio>
 
               <AppButton
                 height="100%"

@@ -47,6 +47,7 @@ const FilterButton = forwardRef((props, ref) => {
 
   return (
     <Button
+      setHover={isBrowser ? true : false}
       ref={bRef}
       minW={isBrowser ? '160px' : null}
       marginX={isBrowser ? '4px' : '3px'}
@@ -97,7 +98,6 @@ export const PortfolioAppGalleryFilter = ({ setImages, photos, setPhotos }) => {
     if (index === activeIndex) {
       return;
     }
-    console.log(buttonRefs.current);
     let barRect = ref.current.getBoundingClientRect();
     let buttonPartVisible = barRect.x + barRect.width - buttonRect.x;
     if (buttonPartVisible < buttonRect.width) {
