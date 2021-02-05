@@ -77,7 +77,7 @@ export const HomepageHowItWorks = () => {
       >
         <StepItem
           title="Step 1"
-          image="/images/unDraw_Terms.png"
+          image="/images/unDraw_Terms2.png"
           description={
             <Text>
               Fill out the form or contact us at
@@ -88,12 +88,12 @@ export const HomepageHowItWorks = () => {
         />
         <StepItem
           title="Step 2"
-          image="/images/unDraw_events.png"
+          image="/images/unDraw_event2.png"
           description="We will set up an appointment with you for a walk-through at your earliest convenient time."
         />
         <StepItem
           title="Step 3"
-          image="/images/unDraw_gift_new.png"
+          image="/images/unDraw_gift_new2.png"
           description="We will present you with a free, fair, and no obligation written offer if your property is determined to fit into our investment portfolio."
         />
         <StepItem

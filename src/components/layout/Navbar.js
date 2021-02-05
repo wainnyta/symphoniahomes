@@ -12,6 +12,7 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { isBrowser, isMobile, isTablet } from 'react-device-detect';
+import { CgMenuGridO } from 'react-icons/cg';
 
 const MenuItems = ({ textColor, children, href }) => (
   <Link href={href}>
@@ -57,21 +58,26 @@ const Navbar = ({
         {...otherProps}
         direction="row"
       >
-        <Flex align="center" mr={5} alignSelf="center" flexDirection="row">
-          <Heading
-            as="h1"
-            size="lg"
-            letterSpacing={'-.1rem'}
-            flexDirection="column"
-            color={textColor || 'gray.900'}
-          >
-            Symphonia
-          </Heading>
-          <Text ml={2} fontFamily="fantasy" color={textColor || 'gray.900'}>
-            {' '}
-            homes
-          </Text>
-        </Flex>
+        <Link href="/">
+          <a>
+            <Flex align="center" mr={5} alignSelf="center" flexDirection="row">
+              <Heading
+                as="h1"
+                size="lg"
+                letterSpacing={'-.1rem'}
+                flexDirection="column"
+                color={textColor || 'gray.900'}
+              >
+                Symphonia
+              </Heading>
+              <Text ml={2} fontFamily="fantasy" color={textColor || 'gray.900'}>
+                {' '}
+                homes
+              </Text>
+            </Flex>
+          </a>
+        </Link>
+
         <Spacer />
         <Box display={{ sm: 'block', md: 'none' }} onClick={handleToggle}>
           {/* <svg
@@ -83,7 +89,8 @@ const Navbar = ({
             <title>Menu</title>
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg> */}
-          <HamburgerIcon color={textColor || 'gray.900'} />
+          {/* <HamburgerIcon color={textColor || 'gray.900'} /> */}
+          <CgMenuGridO color={textColor || 'gray.900'} fontSize="2rem" />
         </Box>
 
         <Box
