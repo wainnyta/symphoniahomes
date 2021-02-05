@@ -1,48 +1,13 @@
-import {
-  AspectRatio,
-  Flex,
-  IconButton,
-  Box,
-  Slide,
-  ScaleFade,
-  Fade,
-  SlideFade,
-  useDiscloser,
-  Stack,
-} from '@chakra-ui/react';
-import { FaAngleLeft, FaAngleRight, FaArrowLeft } from 'react-icons/fa';
+import { AspectRatio, Box, Flex } from '@chakra-ui/react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { forwardRef, useImperativeHandle, useState } from 'react';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { AppButton } from '../AppButton';
-import { useState, forwardRef, useImperativeHandle } from 'react';
-import { useTransition, animated } from 'react-spring';
-import { motion, AnimatePresence } from 'framer-motion';
 
 //https://stackoverflow.com/questions/37949981/call-child-method-from-parent
 export const BeforeAndAfterSlide = forwardRef((props, ref) => {
   const { contentToShow } = props;
   const [displayIndex, setDisplayIndex] = useState(0);
-  const [direction, setDirection] = useState('');
-  const [showBeforePicture, setShowBeforePicture] = useState(false);
-  const [showAfterPicture, setShowAfterPicture] = useState(true);
-  const [fadeImage, setFadeImage] = useState(true);
-
-  const pages = [
-    ({ style }) => (
-      <animated.div style={{ ...style, width: '100%' }}>
-        <img
-          src={contentToShow.src2}
-          style={{ objectFit: 'cover', width: '100%' }}
-        />
-      </animated.div>
-    ),
-    ({ style }) => (
-      <animated.div style={{ ...style, width: '100%' }}>
-        <img
-          src={contentToShow.src}
-          style={{ objectFit: 'cover', width: '100%' }}
-        />
-      </animated.div>
-    ),
-  ];
 
   const getCurrentImage = () => {
     switch (displayIndex) {
@@ -66,59 +31,27 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
   function showImage(change, direction) {
     let newIndex = Math.abs(displayIndex + change) % 2;
     setDisplayIndex(newIndex);
-    // setFadeImage(false);
-    // setFadeImage(true);
-    if (newIndex === 0) {
-      setShowBeforePicture(false);
-      setShowAfterPicture(true);
-    } else {
-      setShowAfterPicture(false);
-      setShowBeforePicture(true);
-    }
   }
 
-  function renderImageTag() {
-    // if (showAfterPicture) {
-    //   return (
-    //     <SlideFade
-    //       in={showAfterPicture}
-    //       width={showAfterPicture ? '100%' : '0%'}
-    //     >
-    //       <img
-    //         src={contentToShow.src}
-    //         style={{ objectFit: 'cover', width: '100%' }}
-    //       />
-    //     </SlideFade>
-    //   );
-    // } else {
-    //   return (
-    //     <SlideFade
-    //       in={showBeforePicture}
-    //       width={showBeforePicture ? '100%' : '0%'}
-    //     >
-    //       <img
-    //         src={contentToShow.src2}
-    //         style={{ objectFit: 'cover', width: '100%' }}
-    //       />
-    //     </SlideFade>
-    //   );
-    // }
-    // return (
-    //   <>
-    //     <SlideFade offsetX="50px" in={showAfterPicture}>
-    //       <img
-    //         src={contentToShow.src}
-    //         style={{ objectFit: 'cover', width: '100%' }}
-    //       />
-    //     </SlideFade>
-    //     <SlideFade offsetX="50px" in={showBeforePicture}>
-    //       <img
-    //         src={contentToShow.src2}
-    //         style={{ objectFit: 'cover', width: '0%' }}
-    //       />
-    //     </SlideFade>
-    //   </>
-    // );
+  function getClassName(index) {
+    let classNames = ['bas-img'];
+
+    if (index === displayIndex) {
+      classNames.push('bas-img-show');
+      if (index === 0) {
+        classNames.push('bas-img-before-show');
+      } else {
+        classNames.push('bas-img-after-show');
+      }
+    } else {
+      classNames.push('bas-img-hide');
+      if (index === 0) {
+        classNames.push('bas-img-before-hide');
+      } else {
+        classNames.push('bas-img-after-hide');
+      }
+    }
+    return classNames.join(' ');
   }
 
   const renderImage = () => {
@@ -133,8 +66,8 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
                   position: 'absolute',
                   top: 0,
                   left: 0,
-
                   padding: '5px',
+                  zIndex: '1',
                 }}
                 activeStyle={{ bg: 'rgba(100,100,100, 0.3)', transform: '' }}
                 bg="rgba(220,220,220, 0.2)"
@@ -145,10 +78,34 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
                 <FaAngleLeft style={{ fontSize: '1.5rem' }} />
               </AppButton>
               {/* {renderImageTag()} */}
-              <img
-                src={getCurrentImage()}
-                style={{ objectFit: 'cover', width: '100%' }}
-              />
+
+              <AspectRatio
+                ratio={5 / 3.3}
+                width="100%"
+                className={getClassName(0)}
+              >
+                <img
+                  src={contentToShow.src}
+                  style={{
+                    objectFit: 'cover',
+                    width: '100%',
+                  }}
+                />
+              </AspectRatio>
+              <AspectRatio
+                ratio={5 / 3.3}
+                width="100%"
+                className={getClassName(1)}
+              >
+                <img
+                  src={contentToShow.src2}
+                  style={{
+                    objectFit: 'cover',
+                    width: '100%',
+                  }}
+                />
+              </AspectRatio>
+
               <AppButton
                 height="100%"
                 style={{
@@ -182,8 +139,8 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
     }
   };
   return (
-    <AnimatePresence>
-      <motion.div
+    <>
+      <div
         initial={{ opacity: 0.7 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0.6 }}
@@ -192,7 +149,7 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
         }}
       >
         {renderImage()}
-      </motion.div>
-    </AnimatePresence>
+      </div>
+    </>
   );
 });

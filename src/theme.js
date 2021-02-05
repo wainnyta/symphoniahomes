@@ -71,10 +71,12 @@ const theme = extendTheme({
           borderWidth: '1px',
           borderColor: `${props.colorScheme}.300`,
           _hover: {
-            bg: 'transparent',
-            borderWidth: '1px',
-            borderColor: `${props.colorScheme}.700`,
-            color: `${props.colorScheme}.800`,
+            borderColor: props.setHover
+              ? `${props.colorScheme}.700`
+              : `${props.colorScheme}.300`,
+            color: props.setHover
+              ? `${props.colorScheme}.800`
+              : `${props.colorScheme}.500`,
           },
         }),
       },

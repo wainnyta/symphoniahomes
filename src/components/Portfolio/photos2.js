@@ -427,7 +427,7 @@ const photos = [
     src: '/images/ProjectCapulet/34-Backyard4.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectCapulet/garage.png',
+    src2: '/images/BeforeProjectCapulet/Garage.png',
     displayTag: GARAGE,
     tag: ['outdoor', 'backyard', 'garage'],
     description:
