@@ -33,6 +33,27 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
     setDisplayIndex(newIndex);
   }
 
+  function getClassName(index) {
+    let classNames = ['bas-img'];
+
+    if (index === displayIndex) {
+      classNames.push('bas-img-show');
+      if (index === 0) {
+        classNames.push('bas-img-before-show');
+      } else {
+        classNames.push('bas-img-after-show');
+      }
+    } else {
+      classNames.push('bas-img-hide');
+      if (index === 0) {
+        classNames.push('bas-img-before-hide');
+      } else {
+        classNames.push('bas-img-after-hide');
+      }
+    }
+    return classNames.join(' ');
+  }
+
   const renderImage = () => {
     if (contentToShow.src2) {
       return (
@@ -45,8 +66,8 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
                   position: 'absolute',
                   top: 0,
                   left: 0,
-
                   padding: '5px',
+                  zIndex: '1',
                 }}
                 activeStyle={{ bg: 'rgba(100,100,100, 0.3)', transform: '' }}
                 bg="rgba(220,220,220, 0.2)"
@@ -57,22 +78,24 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
                 <FaAngleLeft style={{ fontSize: '1.5rem' }} />
               </AppButton>
               {/* {renderImageTag()} */}
+
               <img
+                className={getClassName(0)}
                 src={contentToShow.src}
                 style={{
                   objectFit: 'cover',
                   width: '100%',
-                  display: displayIndex === 0 ? 'inline-block' : 'none',
                 }}
               />
               <img
+                className={getClassName(1)}
                 src={contentToShow.src2}
                 style={{
                   objectFit: 'cover',
                   width: '100%',
-                  display: displayIndex === 1 ? 'inline-block' : 'none',
                 }}
               />
+
               <AppButton
                 height="100%"
                 style={{
