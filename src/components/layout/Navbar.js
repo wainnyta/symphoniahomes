@@ -94,7 +94,7 @@ const Navbar = ({
           <MenuItems textColor={textColor} href="/">
             Home
           </MenuItems>
-          <MenuItems textColor={textColor} href="/portfolio2">
+          <MenuItems textColor={textColor} href="/portfolio">
             Portfolio
           </MenuItems>
           <MenuItems textColor={textColor} href="#">
