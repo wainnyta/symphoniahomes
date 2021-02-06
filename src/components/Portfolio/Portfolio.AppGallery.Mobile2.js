@@ -6,41 +6,24 @@ import {
   Divider,
   Flex,
   Heading,
-  IconButton,
   Stack,
   Text,
 } from '@chakra-ui/react';
-import { Fragment } from 'react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import {
-  HOUSE_FRONT,
-  HOUSE_BACK,
-  BEDROOM,
-  LIVING_ROOM,
-  BATHROOM,
-  DINING_ROOM,
-  KITCHEN,
-  UTILITY_ROOM,
-  LAUNDRY_ROOM,
-  OFFICE_ROOM,
-  GARAGE,
-  DECK,
-  BASEMENT,
-  photos,
-} from './photos2';
-import { FaArrowAltCircleLeft, FaArrowCircleUp, FaHome } from 'react-icons/fa';
-import GridImageGallery from '../GridImageGallery';
-import PortfolioImageGridMobile from './Portfolio.ImageGrid.Mobile';
-import { PortfolioAppGalleryFilter } from './Portfolio.AppGallery.Filter';
-import {
-  useState,
-  useEffect,
-  useRef,
   forwardRef,
+  useEffect,
   useImperativeHandle,
+  useRef,
+  useState,
 } from 'react';
-import Link from 'next/link';
+import { FaHome } from 'react-icons/fa';
+import { RemoveScroll } from 'react-remove-scroll';
+import smoothscroll from 'smoothscroll-polyfill';
+import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { photos } from './photos2';
+import { PortfolioAppGalleryFilter } from './Portfolio.AppGallery.Filter';
+import PortfolioImageGridMobile from './Portfolio.ImageGrid.Mobile';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -87,15 +70,13 @@ function getRoomAvatar(room) {
  *
  *************************************/
 const MobilePhotoDisplay2 = forwardRef((props, ref) => {
-  const { photo } = props;
+  const { photo, index, isLast } = props;
   const mRef = useRef(null);
 
   useImperativeHandle(ref, () => ({
     scrollIntoView() {
       mRef.current.scrollIntoView({
-        behavior: 'smooth',
         block: 'start',
-        inline: 'nearest',
       });
     },
   }));
@@ -130,12 +111,10 @@ const MobilePhotoDisplay2 = forwardRef((props, ref) => {
 
   return (
     <Box
-      mt="2rem"
-      mb="0rem"
+      mt={index === 0 ? '4rem' : '3rem'}
+      mb={isLast ? '2rem' : 0}
       py={'1rem'}
-      pb="0rem"
       ref={mRef}
-      className="scrollMarginTop"
     >
       <Divider />
       <Flex p="0.8rem" py="1rem" alignItems="center">
@@ -159,6 +138,7 @@ const MobilePhotoDisplay2 = forwardRef((props, ref) => {
         </Heading>
       </Flex>
       {renderContent()}
+
       <Stack px="0.8rem">
         <div>
           {/* <b style={{ fontSize: '0.9rem' }}>{photo.displayTag}</b> */}
@@ -219,6 +199,11 @@ export const PortfolioAppGalleryMobile2 = () => {
     }
   });
 
+  useEffect(() => {
+    // kick off the polyfill!
+    smoothscroll.polyfill();
+  }, []);
+
   const renderImages = () => {
     const display = myPhotos.map((photo, index) => {
       return (
@@ -226,6 +211,8 @@ export const PortfolioAppGalleryMobile2 = () => {
           key={index}
           ref={(el) => (mobilePhotoRefs.current[index] = el)}
           photo={photo}
+          index={index}
+          isLast={index === myPhotos.length - 1}
         />
       );
     });
@@ -253,7 +240,9 @@ export const PortfolioAppGalleryMobile2 = () => {
   };
 
   const scrollToTop = () => {
-    topRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    topRef.current.scrollIntoView({
+      behavior: 'smooth',
+    });
   };
   return (
     <div>
@@ -262,6 +251,7 @@ export const PortfolioAppGalleryMobile2 = () => {
         setPhotos={setMyPhotos}
         setImages={setmyImages}
       />
+
       <PortfolioImageGridMobile
         style={{
           zIndex: lightboxDisplay ? 0 : 1,
@@ -271,7 +261,7 @@ export const PortfolioAppGalleryMobile2 = () => {
       />
       {lightboxDisplay && (
         <>
-          <div>
+          <RemoveScroll>
             <div
               style={{
                 zIndex: 1,
@@ -284,13 +274,13 @@ export const PortfolioAppGalleryMobile2 = () => {
                 backgroundColor: '#fff',
               }}
             >
-              <div ref={topRef}></div>
+              <div id="topRef" ref={topRef}></div>
               {renderImages()}
 
               <Flex
                 bgColor="myblack.700"
                 position="fixed"
-                bottom="0"
+                top="0"
                 right="0"
                 zIndex="2"
                 width="100%"
@@ -307,6 +297,7 @@ export const PortfolioAppGalleryMobile2 = () => {
                   >
                     <u>Back to Top</u>
                   </Button>
+                  {/* <AnchorLink href="#topRef">Back to Top</AnchorLink> */}
                 </Flex>
                 <Flex flex={1} justifyContent="flex-end">
                   <Button onClick={hideLightbox} margin="10px">
@@ -315,7 +306,7 @@ export const PortfolioAppGalleryMobile2 = () => {
                 </Flex>
               </Flex>
             </div>
-          </div>
+          </RemoveScroll>
         </>
       )}
     </div>
