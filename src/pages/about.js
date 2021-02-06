@@ -86,7 +86,8 @@ const RolineStory = () => {
     <Box
       paddingTop={{ xl: '10rem', base: '7rem' }}
       paddingBottom={{ xl: '4rem', base: '3rem' }}
-      paddingX={{ xl: '5rem', base: '1rem' }}
+      paddingLeft={{ xl: '9rem', base: '1rem' }}
+      paddingRight={{ xl: '4rem', base: '1rem' }}
     >
       <Flex direction={{ xl: 'row', base: 'column' }}>
         <Image
@@ -95,10 +96,14 @@ const RolineStory = () => {
           maxW={{ xl: '500px', base: '100%' }}
           mt={{ xl: '5rem', base: 0 }}
           borderRadius="15px"
-          alignSelf="flex-start"
+          alignSelf={{ xl: 'flex-start', base: 'center' }}
         />
         <Box px={{ xl: '5rem', base: '1rem' }} pt={{ xl: 0, base: '1.2rem' }}>
-          <Heading as="h3" pb="1.5rem">
+          <Heading
+            as="h3"
+            pb="1.5rem"
+            fontSize={{ xl: '2rem', base: '1.8rem' }}
+          >
             I believe things don’t happen for a{' '}
             <span style={{ color: 'tomato' }}>reason</span>, because they happen
             for a{' '}
@@ -173,7 +178,8 @@ const WainnyStory = () => {
   return (
     <Box
       paddingY={{ xl: '9rem', base: '7rem' }}
-      paddingX={{ xl: '5rem', base: '1rem' }}
+      paddingLeft={{ xl: '9rem', base: '1rem' }}
+      paddingRight={{ xl: '4rem', base: '1rem' }}
     >
       <Flex direction={{ xl: 'row', base: 'column' }}>
         <Image
@@ -183,10 +189,15 @@ const WainnyStory = () => {
           maxW={{ xl: '500px', base: '100%' }}
           mt={{ xl: '5rem', base: 0 }}
           borderRadius="15px"
-          alignSelf="flex-start"
+          alignSelf={{ xl: 'flex-start', base: 'center' }}
         />
+
         <Box px={{ xl: '5rem', base: '1rem' }} pt={{ xl: 0, base: '1.2rem' }}>
-          <Heading as="h3" pb="1.5rem">
+          <Heading
+            as="h3"
+            pb="1.5rem"
+            fontSize={{ xl: '2rem', base: '1.8rem' }}
+          >
             The <span style={{ color: '#07F' }}>sky</span> is not the{' '}
             <span style={{ color: 'tomato' }}>limit</span>.{' '}
             <span style={{ color: 'teal' }}>We</span> are (and aren't).
@@ -263,7 +274,7 @@ const Post = ({ children }) => {
       py={{ xl: '0.8rem', base: '0.5rem' }}
       color="myblack.800"
       // fontFamily="unset"
-      fontSize={{ xl: '1.2rem', base: '1rem' }}
+      fontSize={{ xl: '1.1rem', base: '1rem' }}
     >
       {children}
     </Text>

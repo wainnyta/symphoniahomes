@@ -61,9 +61,7 @@ const Navbar = ({
         <Link href="/">
           <a>
             <Flex align="center" mr={5} alignSelf="center" flexDirection="row">
-              {false && (
-                <Image w="150px" src="/images/Logo/logo_transparent.png" />
-              )}
+              {false && <Image w="150px" src="/images/Logo/logo3.png" />}
               {true && (
                 <>
                   <Heading
