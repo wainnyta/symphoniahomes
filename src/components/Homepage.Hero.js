@@ -37,17 +37,17 @@ export const HomepageHero = ({ bgColor }) => {
       bgColor={bgColor || 'black'}
       alignItems="center"
       justifyContent={{ xl: 'center', base: 'space-around' }}
-      paddingX={{ lg: '5rem', base: '2rem' }}
+      paddingX={{ md: '5rem', base: '1.5rem' }}
       pt={{ xl: 0, base: '50px' }}
     >
-      <Divider
+      {/* <Divider
         mt={10}
         mb={5}
         borderColor="yellow.100"
         w={{ lg: 200, md: 200, base: 100 }}
-        alignSelf="center"
+        alignSelf="flex-start"
         display={{ xl: 'none', base: 'block' }}
-      />
+      /> */}
       <Box
         w={{ xl: '50%', base: '100%' }}
         paddingRight={{ xl: '10px' }}
@@ -55,35 +55,60 @@ export const HomepageHero = ({ bgColor }) => {
         justifyItems="center"
         alignItems="center"
         paddingLeft={{ xl: '50px' }}
+        mt={{ base: '10', xl: 0 }}
       >
-        <Flex
-          direction="row"
-          alignItems="center"
-          justifyContent={{ base: 'center', xl: 'left' }}
-        >
-          <Divider w={30} display={{ base: 'none', xl: 'block' }} />
+        <Box borderColor="teal.100">
+          <Flex
+            direction="row"
+            alignItems="center"
+            justifyContent={{
+              base: 'flex-start',
+              md: 'center',
+              xl: 'flex-start',
+            }}
+          >
+            <Divider w={30} display={{ base: 'none', xl: 'block' }} />
+            <Text
+              color="white"
+              pl={'15px'}
+              fontFamily="fantasy"
+              fontSize={{ base: '18px', md: '28px' }}
+            >
+              Impassionedly & Thoughtfully
+            </Text>
+          </Flex>
           <Text
             color="white"
-            pl={'15px'}
-            fontFamily="fantasy"
-            fontSize={{ sm: '20px', md: '28px' }}
+            textTransform="uppercase"
+            pt={2}
+            letterSpacing={{ xl: 5, base: 1 }}
+            pl={{ base: '15px', md: 0 }}
+            fontFamily="serif"
+            fontSize={{ xl: '45px', base: '28px' }}
+            fontWeight="700"
+            align={'flex-start'}
+            display={{ xl: 'block', md: 'none', base: 'block' }}
+            // alignSelf={['center', 'center', 'left']}
           >
-            Impassionedly & Thoughtfully
+            Designed Spaces
           </Text>
-        </Flex>
-        <Text
-          color="white"
-          textTransform="uppercase"
-          pt={2}
-          letterSpacing={5}
-          fontFamily="serif"
-          fontSize={{ xl: '45px', sm: '35px' }}
-          fontWeight="700"
-          align={{ base: 'center', xl: 'left' }}
-          // alignSelf={['center', 'center', 'left']}
-        >
-          Designed Spaces
-        </Text>
+          <Text
+            color="white"
+            textTransform="uppercase"
+            pt={2}
+            letterSpacing={{ xl: 5, base: 1 }}
+            pl={{ base: '15px', md: 0 }}
+            fontFamily="serif"
+            fontSize={{ xl: '45px', base: '28px' }}
+            fontWeight="700"
+            display={{ xl: 'none', md: 'block', base: 'none' }}
+            align={'center'}
+            // alignSelf={['center', 'center', 'left']}
+          >
+            Designed Spaces
+          </Text>
+        </Box>
+
         <Box
           // maxWidth={{ xl: '500px', lg: '800px', base: '100%' }}
           maxWidth={{ xl: '500px', base: '100%' }}
@@ -98,8 +123,8 @@ export const HomepageHero = ({ bgColor }) => {
         >
           <Text
             color="gray.300"
-            align={{ base: 'center', xl: 'left' }}
-            fontSize={18}
+            align={{ base: 'left', xl: 'left' }}
+            fontSize={{ base: '1rem', xl: '18px' }}
             fontFamily="unset"
           >
             {IntroText}

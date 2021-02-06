@@ -1,7 +1,6 @@
-import { Container } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
 import { HomepageContact } from '../components/Homepage.Contact';
 import { HomepageFooter } from '../components/Homepage.Footer';
-import { HomepageForm } from '../components/Homepage.Form';
 import { HomepageGallery } from '../components/Homepage.Gallery';
 import { HomepageHero } from '../components/Homepage.Hero';
 import { HomepageHowItWorks } from '../components/Homepage.HowItWorks';
@@ -11,7 +10,7 @@ const Index = () => (
   <>
     <header style={styles.header}>
       <div style={styles.content}>
-        <Container maxWidth="1600px" margin="auto">
+        <Box maxWidth="1600px" margin="auto">
           <Navbar
             bgColor="transparent"
             textColor="white"
@@ -21,21 +20,21 @@ const Index = () => (
             bottomBordered={true}
           />
           <HomepageHero bgColor="transparent" />
-        </Container>
+        </Box>
       </div>
     </header>
-    <main>
-      <section style={styles.main}>
+    <body>
+      <div style={styles.main}>
         <HomepageHowItWorks />
-      </section>
-      <section style={{ backgroundColor: 'white' }}>
+      </div>
+      <div style={{ backgroundColor: 'white' }}>
         <HomepageContact />
-      </section>
-      <section style={{ backgroundColor: '#fdfdfd' }}>
+      </div>
+      <div style={{ backgroundColor: '#fdfdfd' }}>
         <HomepageGallery />
-      </section>
+      </div>
       {/* <HomepageWhyUs /> */}
-    </main>
+    </body>
     <HomepageFooter />
   </>
 );

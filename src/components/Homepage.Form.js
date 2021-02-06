@@ -33,6 +33,7 @@ const ContactFormSchema = Yup.object().shape({
 export const HomepageForm = () => {
   return (
     <Flex
+      paddingX={{ xl: '0rem', base: '1rem' }}
       paddingY={{ xl: '5rem', base: '1rem' }}
       // borderWidth="1px"
       // borderColor="white"

@@ -139,8 +139,8 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
     }
   };
   return (
-    <>
-      <div
+    <AnimatePresence>
+      <motion.div
         initial={{ opacity: 0.7 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0.6 }}
@@ -149,7 +149,7 @@ export const BeforeAndAfterSlide = forwardRef((props, ref) => {
         }}
       >
         {renderImage()}
-      </div>
-    </>
+      </motion.div>
+    </AnimatePresence>
   );
 });
