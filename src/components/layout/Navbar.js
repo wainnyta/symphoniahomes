@@ -20,7 +20,7 @@ const MenuItems = ({ textColor, children, href }) => (
       <Text
         fontFamily="fantasy"
         fontSize="lg"
-        mt={{ base: 4, md: 0 }}
+        mt={{ base: 4, lg: 0 }}
         mr={10}
         display="block"
         color={textColor || 'gray.800'}
@@ -102,12 +102,12 @@ const Navbar = ({
           </MenuItems>
           <Box
             display={{ sm: show ? 'block' : 'none', md: 'block' }}
-            mt={{ base: 4, md: 0 }}
+            mt={{ base: 4, lg: 0 }}
           >
             <Button
               bg={ctaBackgroundColor || 'transparent'}
               border="1px"
-              mt="-1"
+              mt={{ xl: -1, base: 0 }}
               color={ctaColor || 'gray.900'}
               borderColor={ctaBorderColor || 'white'}
               fontSize={15}
