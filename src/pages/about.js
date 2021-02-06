@@ -215,12 +215,12 @@ const WainnyStory = () => {
           <Post>
             House renovation is pretty much alike that of writing computer code.
             We must have a good foundation to build upon, a good architecture
-            and layers design so that we can use it with the least possible
-            setbacks. There is an aesthetical aspect with how it presents itself
-            that pretty much reflects back our unique style as a person. It is
-            infused with our creative power, our thought processes & our love.
-            It must come with all neccesary functions packed & ready to use. In
-            short, it is a piece of art crafted scientifically.
+            and layers design so that we can use the product with the least
+            possible setbacks. There is an aesthetical aspect with how it
+            presents itself that pretty much reflects back our unique style as a
+            person. It is infused with our creative power, our thought processes
+            & our love. It must come with all neccesary functions packed & ready
+            to use. In short, it is a piece of art crafted scientifically.
           </Post>
           <Post>
             Shortly before starting our Real Estate journey, we don't
