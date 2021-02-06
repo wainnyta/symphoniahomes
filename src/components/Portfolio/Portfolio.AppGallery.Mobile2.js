@@ -29,7 +29,7 @@ import {
   BASEMENT,
   photos,
 } from './photos2';
-import { FaArrowAltCircleLeft, FaHome } from 'react-icons/fa';
+import { FaArrowAltCircleLeft, FaArrowCircleUp, FaHome } from 'react-icons/fa';
 import GridImageGallery from '../GridImageGallery';
 import PortfolioImageGridMobile from './Portfolio.ImageGrid.Mobile';
 import { PortfolioAppGalleryFilter } from './Portfolio.AppGallery.Filter';
@@ -40,6 +40,7 @@ import {
   forwardRef,
   useImperativeHandle,
 } from 'react';
+import Link from 'next/link';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -91,7 +92,11 @@ const MobilePhotoDisplay2 = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     scrollIntoView() {
-      mRef.current.scrollIntoView({ behavior: 'smooth' });
+      mRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
     },
   }));
 
@@ -124,7 +129,14 @@ const MobilePhotoDisplay2 = forwardRef((props, ref) => {
   };
 
   return (
-    <Box mt="2rem" mb="0rem" py={'1rem'} pb="0rem" ref={mRef}>
+    <Box
+      mt="2rem"
+      mb="0rem"
+      py={'1rem'}
+      pb="0rem"
+      ref={mRef}
+      className="scrollMarginTop"
+    >
       <Divider />
       <Flex p="0.8rem" py="1rem" alignItems="center">
         <Avatar
@@ -193,6 +205,7 @@ const MobilePhotoSlide = ({ src }) => {
 export const PortfolioAppGalleryMobile2 = () => {
   const [photoRefs, setPhotoRefs] = useState({});
   const mobilePhotoRefs = useRef([]);
+  const topRef = useRef(null);
   const [myPhotos, setMyPhotos] = useState(photos);
   const [myImages, setmyImages] = useState([]);
   const [lightboxDisplay, setLightboxDisplay] = useState(false);
@@ -201,7 +214,6 @@ export const PortfolioAppGalleryMobile2 = () => {
 
   useEffect(() => {
     mobilePhotoRefs.current = mobilePhotoRefs.current.slice(0, myPhotos.length);
-    console.log('useEffect', mobilePhotoRefs.current);
     if (displayIndex != -1) {
       mobilePhotoRefs.current[displayIndex].scrollIntoView();
     }
@@ -239,6 +251,10 @@ export const PortfolioAppGalleryMobile2 = () => {
     // console.log('windowOffset: ', windowOffset);
     // window.scrollTo(0, windowOffset);
   };
+
+  const scrollToTop = () => {
+    topRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   return (
     <div>
       <PortfolioAppGalleryFilter
@@ -246,7 +262,13 @@ export const PortfolioAppGalleryMobile2 = () => {
         setPhotos={setMyPhotos}
         setImages={setmyImages}
       />
-      <PortfolioImageGridMobile photos={myPhotos} onClick={handleOnclick} />
+      <PortfolioImageGridMobile
+        style={{
+          zIndex: lightboxDisplay ? 0 : 1,
+        }}
+        photos={myPhotos}
+        onClick={handleOnclick}
+      />
       {lightboxDisplay && (
         <>
           <div>
@@ -262,21 +284,36 @@ export const PortfolioAppGalleryMobile2 = () => {
                 backgroundColor: '#fff',
               }}
             >
+              <div ref={topRef}></div>
+              {renderImages()}
+
               <Flex
-                bgColor="white"
+                bgColor="myblack.700"
                 position="fixed"
-                top="0"
+                bottom="0"
                 right="0"
                 zIndex="2"
                 width="100%"
-                justifyContent="flex-end"
+                height="70px"
+                justifyContent="space-between"
+                alignItems="center"
               >
-                <Button onClick={hideLightbox} margin="10px">
-                  X
-                </Button>
+                <Box flex={1}></Box>
+                <Flex flex={2} justifyContent="center">
+                  <Button
+                    variant="link"
+                    colorScheme="teal"
+                    onClick={scrollToTop}
+                  >
+                    <u>Back to Top</u>
+                  </Button>
+                </Flex>
+                <Flex flex={1} justifyContent="flex-end">
+                  <Button onClick={hideLightbox} margin="10px">
+                    Close
+                  </Button>
+                </Flex>
               </Flex>
-
-              {renderImages()}
             </div>
           </div>
         </>
