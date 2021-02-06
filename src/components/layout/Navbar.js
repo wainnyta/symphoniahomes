@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 
 import Link from 'next/link';
-import { isBrowser, isMobile, isTablet } from 'react-device-detect';
 import { CgMenuGridO } from 'react-icons/cg';
 
 const MenuItems = ({ textColor, children, href }) => (
@@ -43,7 +42,6 @@ const Navbar = ({
   const [show, setShow] = React.useState(false);
   const handleToggle = () => {
     setShow(!show);
-    console.log('handleclicked');
   };
 
   return (
@@ -51,7 +49,7 @@ const Navbar = ({
       <Flex
         as="nav"
         wrap="wrap"
-        paddingX={isBrowser ? '1.2rem' : '1.2rem'}
+        paddingX={'1.2rem'}
         bg={bgColor || 'white'}
         color="white"
         pt={10}
