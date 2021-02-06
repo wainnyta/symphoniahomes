@@ -8,6 +8,7 @@ import {
   Spacer,
   Divider,
   Center,
+  Image,
 } from '@chakra-ui/react';
 
 import Link from 'next/link';
@@ -37,6 +38,7 @@ const Navbar = ({
   ctaBorderColor,
   ctaBackgroundColor,
   bottomBordered,
+  isTransparent,
   ...otherProps
 }) => {
   const [show, setShow] = React.useState(false);
@@ -59,19 +61,30 @@ const Navbar = ({
         <Link href="/">
           <a>
             <Flex align="center" mr={5} alignSelf="center" flexDirection="row">
-              <Heading
-                as="h1"
-                size="lg"
-                letterSpacing={'-.1rem'}
-                flexDirection="column"
-                color={textColor || 'gray.900'}
-              >
-                Symphonia
-              </Heading>
-              <Text ml={2} fontFamily="fantasy" color={textColor || 'gray.900'}>
-                {' '}
-                homes
-              </Text>
+              {false && (
+                <Image w="150px" src="/images/Logo/logo_transparent.png" />
+              )}
+              {true && (
+                <>
+                  <Heading
+                    as="h1"
+                    size="lg"
+                    letterSpacing={'-.1rem'}
+                    flexDirection="column"
+                    color={textColor || 'gray.900'}
+                  >
+                    Symphonia
+                  </Heading>
+                  <Text
+                    ml={2}
+                    fontFamily="fantasy"
+                    color={textColor || 'gray.900'}
+                  >
+                    {' '}
+                    homes
+                  </Text>
+                </>
+              )}
             </Flex>
           </a>
         </Link>
@@ -92,7 +105,7 @@ const Navbar = ({
           <MenuItems textColor={textColor} href="/portfolio">
             Portfolio
           </MenuItems>
-          <MenuItems textColor={textColor} href="#">
+          <MenuItems textColor={textColor} href="/about">
             Our Story
           </MenuItems>
           <MenuItems textColor={textColor} href="#">

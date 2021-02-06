@@ -60,6 +60,9 @@ export const HomepageGallery = () => {
           color="black"
           hoverColor="black"
           hoverBorderWidth="0"
+          onClick={() => {
+            router.push('/about').then(() => window.scrollTo(0, 0));
+          }}
         >
           Read Our Stories
           <FaAngleDoubleRight
