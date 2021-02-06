@@ -65,7 +65,7 @@ export const HomepageHowItWorks = () => {
           size="2xl"
           color="teal.500"
           fontFamily="fantasy"
-          pt="0.6rem"
+          pt={{ xl: '0.6rem', base: '0.5rem' }}
         >
           Works
         </Heading>
