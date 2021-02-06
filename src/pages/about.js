@@ -91,7 +91,7 @@ const RolineStory = () => {
       <Flex direction={{ xl: 'row', base: 'column' }}>
         <Image
           objectFit="contain"
-          src="/images/Roline2.JPG"
+          src="/images/Roline2.jpg"
           maxW={{ xl: '500px', base: '100%' }}
           mt={{ xl: '5rem', base: 0 }}
           borderRadius="15px"
