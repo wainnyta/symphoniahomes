@@ -22,6 +22,7 @@ const Porfolio2 = () => {
             ctaColor="white"
             ctaBorderColor="teal.400"
             bottomBordered={true}
+            focus="portfolio"
           />
         </Box>
         <Divider />

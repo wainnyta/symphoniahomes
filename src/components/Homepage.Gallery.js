@@ -5,10 +5,29 @@ import { AppButton } from './AppButton';
 import GridImageGallery from './GridImageGallery';
 import { photos } from './photos';
 import { useRouter } from 'next/router';
+import { isBrowser, isTablet } from 'react-device-detect';
 
 export const HomepageGallery = () => {
   const router = useRouter();
+
   const [viewGalleryIsLoading, setviewGalleryIsLoading] = useState(false);
+
+  function getGalleryTitleText() {
+    if (isBrowser || isTablet) {
+      return (
+        <>
+          See the <u>impact</u> we've made <br /> on our community
+        </>
+      );
+    } else {
+      return (
+        <>
+          See the <u>impact</u> we've made on our community
+        </>
+      );
+    }
+  }
+
   return (
     <Box
       direction="column"
@@ -20,13 +39,12 @@ export const HomepageGallery = () => {
     >
       <Text
         as="h1"
-        fontSize={{ xl: '4rem', md: '2.5rem', base: '2rem' }}
+        fontSize={{ xl: '3.5rem', md: '2.5rem', base: '1.5rem' }}
         my="2rem"
         fontWeight="600"
         textAlign="center"
       >
-        See the <u>impact</u> we've made <br />
-        on our community
+        {getGalleryTitleText()}
       </Text>
       {/* <ResponsiveGallery images={photos} /> */}
       <GridImageGallery showImageComparision={true} photos={photos} />

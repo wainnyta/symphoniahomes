@@ -15,6 +15,8 @@ import {
 import { Formik, Form, Field } from 'formik';
 import { FaGift } from 'react-icons/fa';
 import * as Yup from 'yup';
+import emailjs from 'emailjs-com';
+import { useState } from 'react';
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
@@ -31,6 +33,9 @@ const ContactFormSchema = Yup.object().shape({
 });
 
 export const HomepageForm = () => {
+  const [formMessage, setFormMessage] = useState('');
+  const [hasError, setHasError] = useState(false);
+
   return (
     <Flex
       paddingX={{ xl: '0rem', base: '1rem' }}
@@ -62,10 +67,44 @@ export const HomepageForm = () => {
             email: '',
           }}
           validationSchema={ContactFormSchema}
-          onSubmit={(values) => {
+          onSubmit={(values, actions) => {
             // same shape as initial values
-            console.log(values);
+            emailjs
+              .send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+                values,
+                process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+              )
+              .then(
+                ({ status }) => {
+                  if (status === 200) {
+                    setFormMessage(
+                      'Thank you. Your offer request has been sent. We will get back to you within 24 hours.'
+                    );
+                    setHasError(false);
+                    actions.setSubmitting(false);
+                  } else {
+                    setFormMessage(
+                      'Sorry, there was some error trying to send your offer request. Please try again or contact us at 204-588-8329 or symphoniahomes@gmail.com'
+                    );
+                    setHasError(true);
+                    actions.setSubmitting(false);
+                  }
+                },
+                (err) => {
+                  // eslint-disable-next-line no-console
+                  console.log(err);
+                  setFormMessage(
+                    'Sorry, there was some error trying to send your offer request. Please try again or contact us at 204-588-8329 or symphoniahomes@gmail.com'
+                  );
+                  setHasError(true);
+                  actions.setSubmitting(false);
+                }
+              );
           }}
+          validateOnChange={false}
+          validateOnBlur={false}
         >
           {(props) => (
             <Form>
@@ -197,6 +236,13 @@ export const HomepageForm = () => {
             </Form>
           )}
         </Formik>
+        {formMessage.trim().length > 0 && (
+          <Box pt={2}>
+            <Text color={hasError ? 'red.500' : 'green.600'}>
+              {formMessage}
+            </Text>
+          </Box>
+        )}
       </Box>
     </Flex>
   );

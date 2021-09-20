@@ -48,7 +48,7 @@ const StepItem = ({ image, title, description }) => {
   );
 };
 
-export const HomepageHowItWorks = () => {
+export const HomepageHowItWorks = ({ formRef }) => {
   return (
     <Box
       pb={{ base: '20rem' }}
@@ -102,6 +102,7 @@ export const HomepageHowItWorks = () => {
           description="Once the sale is finalized, take the sale proceeds and move on with the next chapter of your life with more financial freedom and peace of mind."
         />
       </Flex>
+      <div ref={formRef} />
     </Box>
   );
 };

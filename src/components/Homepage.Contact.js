@@ -10,12 +10,13 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
-import { MdCall } from 'react-icons/md';
+import { MdCall, MdMessage } from 'react-icons/md';
 import { HomepageForm } from './Homepage.Form';
 
-const ContactButton = ({ children, icon }) => {
+const ContactButton = ({ children, icon, onClick }) => {
   return (
     <Box
+      onClick={onClick}
       as="button"
       height="50px"
       lineHeight="1.2"
@@ -129,7 +130,11 @@ export const HomepageContact = () => {
               >
                 +1 (204) 588 - 8329
               </Button> */}
+
               <ContactButton
+                onClick={() => {
+                  window.location.href = 'tel:+12045888329';
+                }}
                 icon={
                   <MdCall
                     color="#6dd0cd"
@@ -141,6 +146,23 @@ export const HomepageContact = () => {
                 +1 (204) 588 - 8329
               </ContactButton>
               <ContactButton
+                onClick={() => {
+                  window.location.href = 'sms:+12045888329';
+                }}
+                icon={
+                  <MdMessage
+                    color="#6dd0cd"
+                    style={{ marginRight: '1rem' }}
+                    fontSize="1.7rem"
+                  />
+                }
+              >
+                +1 (204) 588 - 8329 <i>&nbsp; (SMS)</i>
+              </ContactButton>
+              <ContactButton
+                onClick={() => {
+                  window.location.href = 'mailto:symphoniahomes@gmail.com';
+                }}
                 icon={
                   <EmailIcon
                     color="#6dd0cd"
@@ -149,7 +171,7 @@ export const HomepageContact = () => {
                   />
                 }
               >
-                info@symphoniahomes.com
+                symphoniahomes@gmail.com
               </ContactButton>
             </Flex>
             <Box
@@ -163,6 +185,7 @@ export const HomepageContact = () => {
                 aria-label="Facebook"
                 icon={<FaFacebookF />}
                 isRound="true"
+                disabled={true}
               />
               <IconButton
                 colorScheme="teal"
@@ -170,12 +193,16 @@ export const HomepageContact = () => {
                 icon={<FaInstagram />}
                 isRound="true"
                 marginX="3rem"
+                onClick={() =>
+                  window.open('https://www.instagram.com/symphoniahomes/')
+                }
               />
               <IconButton
                 colorScheme="teal"
                 aria-label="Twitter"
                 icon={<FaTwitter />}
                 isRound="true"
+                disabled={true}
               />
             </Box>
             <Box flexGrow="1"></Box>
@@ -199,6 +226,7 @@ export const HomepageContact = () => {
             aria-label="Facebook"
             icon={<FaFacebookF />}
             isRound="true"
+            disabled={true}
           />
           <IconButton
             colorScheme="teal"
@@ -212,6 +240,7 @@ export const HomepageContact = () => {
             aria-label="Twitter"
             icon={<FaTwitter />}
             isRound="true"
+            disabled={true}
           />
         </Box>
       </Flex>

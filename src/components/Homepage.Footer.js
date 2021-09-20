@@ -3,6 +3,7 @@ import React from 'react';
 import { FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { AppButton } from './AppButton';
 import GridImageGallery from './GridImageGallery';
+import { isBrowser, isMobile, isTablet } from 'react-device-detect';
 
 export const HomepageFooter = () => {
   return (
@@ -14,6 +15,7 @@ export const HomepageFooter = () => {
             aria-label="Facebook"
             icon={<FaFacebookF />}
             isRound="true"
+            disabled={true}
           />
           <IconButton
             colorScheme="teal"
@@ -21,23 +23,35 @@ export const HomepageFooter = () => {
             icon={<FaInstagram />}
             isRound="true"
             marginX="2rem"
+            onClick={() =>
+              window.open('https://www.instagram.com/symphoniahomes/')
+            }
           />
           <IconButton
             colorScheme="teal"
             aria-label="Twitter"
             icon={<FaTwitter />}
             isRound="true"
+            disabled={true}
           />
         </Flex>
 
-        <Flex backgroundColor="#3F4651" justifyContent="center" pb="2rem">
+        <Flex
+          backgroundColor="#3F4651"
+          direction={isBrowser ? 'row' : 'column'}
+          justifyContent="center"
+          alignItems={isBrowser ? null : 'center'}
+          pb="2rem"
+        >
           <Text color="gray.100" px="5px">
             &copy; {new Date().getFullYear()} Symphonia Homes Inc.
           </Text>
-          <Text color="gray.100" px="5px">
-            {' '}
-            |{' '}
-          </Text>
+          {isBrowser && (
+            <Text color="gray.100" px="5px">
+              {' '}
+              |{' '}
+            </Text>
+          )}
           <Text color="gray.100" px="5px">
             204.588.8329
           </Text>

@@ -28,6 +28,7 @@ const AboutUs = () => {
             ctaColor="white"
             ctaBorderColor="teal.400"
             bottomBordered={true}
+            focus="about"
           />
         </Box>
         <Divider />
@@ -51,18 +52,6 @@ const AboutUs = () => {
           </Box>
         </Box>
         <Box maxW="1550px" marginX="auto">
-          {/* <Heading
-            fontWeight="300"
-            fontFamily="sans-serif"
-            textDecoration="underline"
-            pb="2.0rem"
-            color="teal.900"
-            fontFamily="cursive"
-            fontSize="3rem"
-            paddingX="5rem"
-          >
-            Our Real Estate Journey
-          </Heading> */}
           <RolineStory />
         </Box>
         <Box bgColor="#fbfbfb">
@@ -84,17 +73,28 @@ const AboutUs = () => {
 const RolineStory = () => {
   return (
     <Box
-      paddingTop={{ xl: '10rem', base: '7rem' }}
+      paddingTop={{ xl: '6rem', base: '5rem' }}
       paddingBottom={{ xl: '4rem', base: '3rem' }}
       paddingLeft={{ xl: '9rem', base: '1rem' }}
       paddingRight={{ xl: '4rem', base: '1rem' }}
     >
+      <Heading
+        fontWeight="300"
+        fontFamily="sans-serif"
+        textDecoration="underline"
+        color="teal.900"
+        fontFamily="cursive"
+        fontSize="3rem"
+      >
+        Roline's Journey
+      </Heading>
       <Flex direction={{ xl: 'row', base: 'column' }}>
         <Image
           objectFit="contain"
-          src="/images/Roline2.jpg"
+          src="/images/winnipeg.jpeg"
           maxW={{ xl: '500px', base: '100%' }}
           mt={{ xl: '5rem', base: 0 }}
+          maxH={{ xl: '700px', base: '600px' }}
           borderRadius="15px"
           alignSelf={{ xl: 'flex-start', base: 'center' }}
         />
@@ -181,12 +181,23 @@ const WainnyStory = () => {
       paddingLeft={{ xl: '9rem', base: '1rem' }}
       paddingRight={{ xl: '4rem', base: '1rem' }}
     >
+      <Heading
+        fontWeight="300"
+        fontFamily="sans-serif"
+        textDecoration="underline"
+        color="teal.900"
+        fontFamily="cursive"
+        fontSize="3rem"
+      >
+        Wainny's Journey
+      </Heading>
       <Flex direction={{ xl: 'row', base: 'column' }}>
         <Image
           // pr={{ xl: '5rem', base: '1rem' }}
           objectFit="contain"
-          src="/images/Wainny.JPG"
+          src="/images/winnipeg2.jpeg"
           maxW={{ xl: '500px', base: '100%' }}
+          maxH={{ xl: '700px', base: '600px' }}
           mt={{ xl: '5rem', base: 0 }}
           borderRadius="15px"
           alignSelf={{ xl: 'flex-start', base: 'center' }}

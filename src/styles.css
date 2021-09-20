@@ -1,3 +1,7 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 .scrollMarginTop {
   scroll-margin-top: '500px';
 }
@@ -35,6 +39,7 @@ button:focus {
 .appGalleryImage {
   transition: transform 1s;
 }
+
 .appGalleryImage:hover {
   transform: scale(1.1);
 }

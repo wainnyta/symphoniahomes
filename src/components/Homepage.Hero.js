@@ -4,7 +4,8 @@ import ImageGallery from 'react-image-gallery';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide, pagination } from 'swiper/react';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import smoothscroll from 'smoothscroll-polyfill';
 import { useRouter } from 'next/router';
 
 const images = [
@@ -27,18 +28,24 @@ const IntroText_Old =
 const IntroText =
   'Symphonia Homes Inc. is a Winnipeg-based company specializing in buying houses in Winnipeg or surrounding areas to rehab and resell or rent. We are taking what is often an outdated property or an eyesore and creating a quality home through renovations. By transforming outdated and neglected houses into beautiful homes for new families to build memories, we have improved quality of life on the street and in the neighborhood where the house is located. We also have contributed to the neighborhood wealth by increasing property values.';
 
-export const HomepageHero = ({ bgColor }) => {
+export const HomepageHero = ({ bgColor, formRef }) => {
   const [viewGalleryIsLoading, setViewGalleryIsLoading] = useState(false);
+
+  useEffect(() => {
+    // kick off the polyfill!
+    smoothscroll.polyfill();
+  }, []);
+
   const router = useRouter();
   return (
     <Flex
       direction={{ xl: 'row', base: 'column' }}
-      minHeight="100vh"
+      minHeight="90vh"
       bgColor={bgColor || 'black'}
-      alignItems="center"
+      //alignItems="center"
       justifyContent={{ xl: 'center', base: 'space-around' }}
       paddingX={{ md: '5rem', base: '1.5rem' }}
-      pt={{ xl: 0, base: '50px' }}
+      pt={{ xl: '140px', base: '50px' }}
     >
       {/* <Divider
         mt={10}
@@ -149,14 +156,21 @@ export const HomepageHero = ({ bgColor }) => {
             // }
             // bgColor="#D17810"
             // color="white"
-            colorScheme="teal"
+            colorScheme="orange"
+            onClick={() => {
+              formRef
+                ? formRef.current.scrollIntoView({
+                    behavior: 'smooth',
+                  })
+                : null;
+            }}
           >
             Have A House To Sell?
           </Button>
           <Button
             isLoading={viewGalleryIsLoading}
             fontSize={15}
-            variant={{ xl: 'ghost', base: 'outline' }}
+            // variant={{ xl: 'solid', base: 'outline' }}
             size="lg"
             rightIcon={
               <div style={{ paddingLeft: 10 }}>
@@ -169,7 +183,7 @@ export const HomepageHero = ({ bgColor }) => {
               /> */}
               </div>
             }
-            color="white"
+            colorScheme="teal"
             onClick={() => {
               setViewGalleryIsLoading(true);
               router.push('/portfolio');
