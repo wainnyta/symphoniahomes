@@ -78,8 +78,8 @@ export const HomepageHero = ({ bgColor, formRef }) => {
             <Text
               color="white"
               pl={'15px'}
-              fontFamily="fantasy"
-              fontSize={{ base: '18px', md: '28px' }}
+              fontFamily="Open Sans"
+              fontSize={{ base: '18px', md: '25px' }}
             >
               Impassionedly & Thoughtfully
             </Text>
@@ -90,7 +90,7 @@ export const HomepageHero = ({ bgColor, formRef }) => {
             pt={2}
             letterSpacing={{ xl: 5, base: 1 }}
             pl={{ base: '15px', md: 0 }}
-            fontFamily="serif"
+            fontFamily="Merriweather"
             fontSize={{ xl: '45px', base: '28px' }}
             fontWeight="700"
             align={'flex-start'}
@@ -105,7 +105,7 @@ export const HomepageHero = ({ bgColor, formRef }) => {
             pt={2}
             letterSpacing={{ xl: 5, base: 1 }}
             pl={{ base: '15px', md: 0 }}
-            fontFamily="serif"
+            fontFamily="Merriweather"
             fontSize={{ xl: '45px', base: '28px' }}
             fontWeight="700"
             display={{ xl: 'none', md: 'block', base: 'none' }}
@@ -129,10 +129,9 @@ export const HomepageHero = ({ bgColor, formRef }) => {
           // borderColor="white"
         >
           <Text
-            color="gray.300"
+            color="gray.200"
             align={{ base: 'left', xl: 'left' }}
             fontSize={{ base: '1rem', xl: '18px' }}
-            fontFamily="unset"
           >
             {IntroText}
           </Text>

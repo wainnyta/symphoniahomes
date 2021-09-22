@@ -1,3 +1,8 @@
+import '@fontsource/open-sans';
+import '@fontsource/raleway';
+import '@fontsource/inter';
+import '@fontsource/lato';
+import '@fontsource/merriweather';
 import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
 import theme from '../theme';
 import 'swiper/swiper-bundle.min.css';

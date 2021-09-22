@@ -90,6 +90,7 @@ export const HomepageContact = () => {
             <Box flexGrow="1"></Box>
             <Box flexGrow={{ xl: '2.5', base: 1 }}>
               <Text
+                fontFamily="Merriweather"
                 fontWeight="700"
                 fontSize="1.5rem"
                 color="white"

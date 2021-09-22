@@ -35,7 +35,12 @@ const StepItem = ({ image, title, description }) => {
       >
         <Flex direction={{ xl: 'column', md: 'column', base: 'column' }}>
           <h3
-            style={{ fontSize: '1.8rem', fontWeight: '500', color: '#3E3E3E' }}
+            style={{
+              fontSize: '1.8rem',
+              fontWeight: '500',
+              color: '#3E3E3E',
+              fontFamily: 'Merriweather',
+            }}
           >
             {title}
           </h3>
@@ -57,15 +62,15 @@ export const HomepageHowItWorks = ({ formRef }) => {
       marginX="auto"
     >
       <Flex mb={{ base: '3rem' }} textAlign="center" justifyContent="center">
-        <Heading as="h1" size="2xl">
+        <Heading as="h1" size="2xl" fontFamily="Merriweather">
           How It&nbsp;
         </Heading>
         <Heading
           as="h1"
           size="2xl"
           color="teal.500"
-          fontFamily="fantasy"
-          pt={{ xl: '0.6rem', base: '0.5rem' }}
+          fontFamily="Merriweather"
+          //pt={{ xl: '0.6rem', base: '0.5rem' }}
         >
           Works
         </Heading>
@@ -82,7 +87,7 @@ export const HomepageHowItWorks = ({ formRef }) => {
             <Text>
               Fill out the form or contact us at
               <br />
-              204-588-8329 or info@symphoniahomes.com.
+              204-588-8329 or symphoniahomes@gmail.com
             </Text>
           }
         />

@@ -246,7 +246,11 @@ export const PortfolioAppGallery = () => {
                         pt={'2rem'}
                         key={contentToShow.src}
                       >
-                        <Text fontSize="1.5rem" fontWeight="500">
+                        <Text
+                          fontSize="1.5rem"
+                          fontWeight="900"
+                          fontFamily="Merriweather"
+                        >
                           {contentToShow.displayTag + ' Transformation' || ''}
                         </Text>
                         <Text pt="10px">{contentToShow.description || ''}</Text>

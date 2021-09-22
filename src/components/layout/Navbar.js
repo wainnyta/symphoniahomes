@@ -19,16 +19,16 @@ import { MdCall } from 'react-icons/md';
 const MenuItems = ({ textColor, children, href, isFocus }) => (
   <span>
     <Text
-      fontFamily="fantasy"
+      fontFamily="Merriweather"
       mt={{ base: 4, lg: 0 }}
       mr={10}
       display="block"
-      color={textColor || 'gray.800'}
-      fontWeight={isFocus ? 'bold' : 'normal'}
+      color={textColor || 'gray.700'}
+      fontWeight={isFocus ? 'bold' : '100'}
     >
       <a
         className={isFocus ? 'navbar-links navbar-link-active' : 'navbar-links'}
-        href={href}
+        href={isFocus ? '#' : href}
       >
         {children}
       </a>
@@ -36,13 +36,18 @@ const MenuItems = ({ textColor, children, href, isFocus }) => (
 
     <style jsx>{`
       .navbar-links {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
       .navbar-links:hover {
         text-decoration: underline;
       }
+      .navbar-link-active:hover {
+        text-decoration: none;
+      }
       .navbar-link-active {
-        font-size: 1.3rem;
+        font-size: 1rem;
+        font-weight: bolder;
+        cursor: auto;
       }
     `}</style>
   </span>
@@ -138,13 +143,13 @@ const Navbar = ({
           >
             Portfolio
           </MenuItems>
-          <MenuItems
+          {/* <MenuItems
             textColor={textColor}
             href="/about"
             isFocus={focus && focus == 'about'}
           >
             Our Story
-          </MenuItems>
+          </MenuItems> */}
           <MenuItems
             textColor={textColor}
             href="/contact_us"
@@ -166,6 +171,7 @@ const Navbar = ({
               fontSize={15}
               leftIcon={<MdCall size={20} />}
               onClick={() => (window.location.href = 'tel:+12045888329')}
+              fontFamily="Merriweather"
             >
               Call Now 204-588-8329
             </Button>

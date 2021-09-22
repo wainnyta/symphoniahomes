@@ -11,6 +11,22 @@ import {
 } from '@chakra-ui/react';
 import { HomepageContact } from '../components/Homepage.Contact';
 import Navbar from '../components/layout/Navbar';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from '@chakra-ui/react';
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from '@chakra-ui/react';
+import { FaHandHolding, FaHandHoldingHeart, FaHandshake } from 'react-icons/fa';
 
 /*****************************
  *
@@ -37,16 +53,30 @@ const ContactUs = () => {
       <body>
         <Box bg="white" paddingTop="5rem">
           <Box maxW="1550px" marginX="auto">
-            <Heading
-              color="myblack.600"
-              textAlign="center"
-              fontFamily="fantasy"
-            >
+            <Heading color="myblack.600" textAlign="center">
               Let's Get In Touch!
             </Heading>
           </Box>
         </Box>
-        <Box maxW="1550px" marginX="auto" mt="200px" mb="100px">
+        <Box maxW={{ xl: '70vw', base: '90%' }} marginX="auto" pt="30px">
+          <Alert status="warning" variant="subtle">
+            👋 &nbsp;&nbsp;Hello! If you're an&nbsp; <b>investor</b>&nbsp;and
+            would like to receive future deals from us, please feel free to
+            <span>
+              <a href="mailto:symphoniahomes@gmail.com">
+                &nbsp;<u>email</u>
+              </a>
+            </span>
+            &nbsp;us, give us a{' '}
+            <span>
+              <a href="tel:+12045888329">
+                &nbsp;<u>call</u>
+              </a>
+            </span>
+            , or use the form below to keep in touch!
+          </Alert>
+        </Box>
+        <Box maxW="1550px" marginX="auto" mt="230px" mb="100px">
           <HomepageContact />
         </Box>
       </body>

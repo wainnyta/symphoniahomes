@@ -17,7 +17,7 @@ const Porfolio2 = () => {
         <Box maxW="1600px" margin="auto" marginBottom="2rem">
           <Navbar
             bgColor="transparent"
-            textColor="black"
+            //textColor="black"
             ctaBackgroundColor="teal.400"
             ctaColor="white"
             ctaBorderColor="teal.400"
@@ -51,7 +51,7 @@ const Porfolio2 = () => {
               <Heading
                 color="myblack.600"
                 fontSize="1.2rem"
-                fontWeight="500"
+                fontWeight="900"
                 textTransform="uppercase"
                 letterSpacing="2px"
               >

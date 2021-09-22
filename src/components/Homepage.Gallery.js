@@ -1,13 +1,13 @@
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { FaAngleDoubleRight } from 'react-icons/fa';
+import { FaAngleDoubleRight, FaAngleDoubleUp } from 'react-icons/fa';
 import { AppButton } from './AppButton';
 import GridImageGallery from './GridImageGallery';
 import { photos } from './photos';
 import { useRouter } from 'next/router';
 import { isBrowser, isTablet } from 'react-device-detect';
 
-export const HomepageGallery = () => {
+export const HomepageGallery = ({ formRef }) => {
   const router = useRouter();
 
   const [viewGalleryIsLoading, setviewGalleryIsLoading] = useState(false);
@@ -60,7 +60,7 @@ export const HomepageGallery = () => {
         justifyContent="center"
         direction={{ md: 'row', base: 'column' }}
       >
-        <Button
+        {/* <Button
           colorScheme="teal"
           variant="appdark"
           mx="10px"
@@ -71,23 +71,66 @@ export const HomepageGallery = () => {
           isLoading={viewGalleryIsLoading}
         >
           View Transformation Gallery
+        </Button> */}
+        <Button
+          colorScheme="teal"
+          bg={'teal.400'}
+          border="1px"
+          size="lg"
+          mx="10px"
+          color={'white'}
+          borderColor={'teal.400'}
+          fontSize={15}
+          isLoading={viewGalleryIsLoading}
+          onClick={() => {
+            setviewGalleryIsLoading(true);
+            router.push('/portfolio');
+          }}
+        >
+          View Transformation Gallery
         </Button>
-        <AppButton
+        <Button
+          mt={{ md: '0px', base: '10px' }}
+          colorScheme="orange"
+          //bg={'transparent'}
+          //border="1px"
+          mx="10px"
+          size="lg"
+          //color={'black'}
+          //borderColor={'transparent'}
+          fontSize={15}
+          isLoading={viewGalleryIsLoading}
+          onClick={() => {
+            formRef
+              ? formRef.current.scrollIntoView({
+                  behavior: 'smooth',
+                })
+              : null;
+          }}
+        >
+          Get A Free Quote
+          <FaAngleDoubleUp style={{ marginLeft: '1rem' }} fontSize="1.5rem" />
+        </Button>
+
+        {/* <AppButton
           bg="transparent"
           hoverBg="transparent"
           color="black"
           hoverColor="black"
           hoverBorderWidth="0"
           onClick={() => {
-            router.push('/about').then(() => window.scrollTo(0, 0));
+            //router.push('/about').then(() => window.scrollTo(0, 0));
+
+            formRef
+              ? formRef.current.scrollIntoView({
+                  behavior: 'smooth',
+                })
+              : null;
           }}
         >
-          Read Our Stories
-          <FaAngleDoubleRight
-            style={{ marginLeft: '1rem' }}
-            fontSize="1.7rem"
-          />
-        </AppButton>
+          Get A Free Quote
+          <FaAngleDoubleUp style={{ marginLeft: '1rem' }} fontSize="1.5rem" />
+        </AppButton> */}
       </Flex>
     </Box>
   );

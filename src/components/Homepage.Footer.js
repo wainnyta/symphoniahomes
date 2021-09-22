@@ -4,12 +4,13 @@ import { FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { AppButton } from './AppButton';
 import GridImageGallery from './GridImageGallery';
 import { isBrowser, isMobile, isTablet } from 'react-device-detect';
+import { MdLink } from 'react-icons/md';
 
 export const HomepageFooter = () => {
   return (
     <footer>
-      <Box>
-        <Flex backgroundColor="#3F4651" py="3rem" justifyContent="center">
+      <Box backgroundColor="#3F4651">
+        <Flex py="3rem" justifyContent="center">
           <IconButton
             colorScheme="teal"
             aria-label="Facebook"
@@ -37,11 +38,9 @@ export const HomepageFooter = () => {
         </Flex>
 
         <Flex
-          backgroundColor="#3F4651"
           direction={isBrowser ? 'row' : 'column'}
           justifyContent="center"
           alignItems={isBrowser ? null : 'center'}
-          pb="2rem"
         >
           <Text color="gray.100" px="5px">
             &copy; {new Date().getFullYear()} Symphonia Homes Inc.
@@ -56,7 +55,31 @@ export const HomepageFooter = () => {
             204.588.8329
           </Text>
         </Flex>
+        <Flex justifyContent="center" px="5px" pb="2rem" pt="10px">
+          <Text color="gray.400" fontSize="0.8rem">
+            <i>
+              Website developed by{' '}
+              <a
+                href="https://www.linkedin.com/in/wainny-ta-a5715359/"
+                target="_blank"
+                className="footer-link"
+              >
+                Wainny
+              </a>{' '}
+              @ SymphoniaHomes
+            </i>
+          </Text>
+        </Flex>
       </Box>
+      <style jsx>{`
+        .footer-link:hover {
+          text-decoration: underline;
+        }
+      `}</style>
     </footer>
   );
+};
+
+const styles = {
+  aStyle: {},
 };

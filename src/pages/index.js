@@ -49,7 +49,7 @@ const Index = () => {
           <HomepageContact />
         </div>
         <div style={{ backgroundColor: '#fdfdfd' }}>
-          <HomepageGallery />
+          <HomepageGallery formRef={formRef} />
         </div>
         {/* <HomepageWhyUs /> */}
       </body>
