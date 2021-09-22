@@ -1,10 +1,10 @@
 import { Container } from '@chakra-ui/react';
-import { HomepageContact } from '../components/Homepage.Contact';
-import { HomepageFooter } from '../components/Homepage.Footer';
-import { HomepageGallery } from '../components/Homepage.Gallery';
-import { HomepageHero } from '../components/Homepage.Hero';
-import { HomepageHowItWorks } from '../components/Homepage.HowItWorks';
-import Navbar from '../components/layout/Navbar';
+import { HomepageContact } from '../src/components/Homepage.Contact';
+import { HomepageFooter } from '../src/components/Homepage.Footer';
+import { HomepageGallery } from '../src/components/Homepage.Gallery';
+import { HomepageHero } from '../src/components/Homepage.Hero';
+import { HomepageHowItWorks } from '../src/components/Homepage.HowItWorks';
+import Navbar from '../src/components/layout/Navbar';
 
 const Index = () => (
   <>

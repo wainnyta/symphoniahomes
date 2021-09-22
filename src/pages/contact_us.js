@@ -59,7 +59,7 @@ const ContactUs = () => {
           </Box>
         </Box>
         <Box maxW={{ xl: '70vw', base: '90%' }} marginX="auto" pt="30px">
-          <Alert status="warning" variant="subtle">
+          <Text bgColor="orange.100" paddingY="15px" paddingX="10px">
             👋 &nbsp;&nbsp;Hello! If you're an&nbsp; <b>investor</b>&nbsp;and
             would like to receive future deals from us, please feel free to
             <span>
@@ -74,7 +74,7 @@ const ContactUs = () => {
               </a>
             </span>
             , or use the form below to keep in touch!
-          </Alert>
+          </Text>
         </Box>
         <Box maxW="1550px" marginX="auto" mt="230px" mb="100px">
           <HomepageContact />

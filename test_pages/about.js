@@ -1,4 +1,4 @@
-const { HomepageFooter } = require('../components/Homepage.Footer');
+const { HomepageFooter } = require('../src/components/Homepage.Footer');
 import {
   Avatar,
   Box,
@@ -9,7 +9,7 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
-import Navbar from '../components/layout/Navbar';
+import Navbar from '../src/components/layout/Navbar';
 
 /*****************************
  *
