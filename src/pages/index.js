@@ -7,6 +7,11 @@ import { HomepageHowItWorks } from '../components/Homepage.HowItWorks';
 import Navbar from '../components/layout/Navbar';
 import { useRef } from 'react';
 import emailjs from 'emailjs-com';
+import { install } from 'resize-observer';
+
+if (typeof window !== 'undefined') {
+  install();
+}
 
 const Index = () => {
   const formRef = useRef(null);
@@ -24,7 +29,7 @@ const Index = () => {
       /> */}
       {/* </Box> */}
 
-      <header style={styles.header}>
+      <div style={styles.header}>
         <div style={styles.content}>
           <Box maxW="1600px" margin="auto">
             <Navbar
@@ -40,8 +45,8 @@ const Index = () => {
             <HomepageHero bgColor="transparent" formRef={formRef} />
           </Box>
         </div>
-      </header>
-      <body>
+      </div>
+      <div>
         <div style={styles.main}>
           <HomepageHowItWorks formRef={formRef} />
         </div>
@@ -52,7 +57,7 @@ const Index = () => {
           <HomepageGallery formRef={formRef} />
         </div>
         {/* <HomepageWhyUs /> */}
-      </body>
+      </div>
       <HomepageFooter />
     </>
   );

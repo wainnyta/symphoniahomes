@@ -111,7 +111,7 @@ const MobilePhotoDisplay2 = forwardRef((props, ref) => {
 
   return (
     <Box
-      mt={index === 0 ? '4rem' : '3rem'}
+      mt={index === 0 ? '2.2rem' : '3rem'}
       mb={isLast ? '2rem' : 0}
       py={'1rem'}
       ref={mRef}
@@ -284,7 +284,7 @@ export const PortfolioAppGalleryMobile2 = () => {
                 right="0"
                 zIndex="2"
                 width="100%"
-                height="70px"
+                height="50px"
                 justifyContent="space-between"
                 alignItems="center"
               >
@@ -300,7 +300,7 @@ export const PortfolioAppGalleryMobile2 = () => {
                   {/* <AnchorLink href="#topRef">Back to Top</AnchorLink> */}
                 </Flex>
                 <Flex flex={1} justifyContent="flex-end">
-                  <Button onClick={hideLightbox} margin="10px">
+                  <Button onClick={hideLightbox} margin="10px" size="sm">
                     Close
                   </Button>
                 </Flex>

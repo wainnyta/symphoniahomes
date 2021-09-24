@@ -1,4 +1,4 @@
-import { Hide, IconButton } from '@chakra-ui/react';
+import { Hide, IconButton, Box, Flex, Text } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import ReactCompareImage from 'react-compare-image';
 import ImageGallery from 'react-image-gallery';
@@ -6,6 +6,11 @@ import styles from './SelectedImage.module.css';
 import { FaArrowDown, FaArrowUp, FaSearch } from 'react-icons/fa';
 import { render } from 'react-dom';
 import { motion, AnimatedPresence, AnimatePresence } from 'framer-motion';
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from 'react-compare-slider';
+import { isBrowser } from 'react-device-detect';
 
 const Checkmark = ({ isHovered }) => (
   <div
@@ -108,6 +113,44 @@ const SelectedImage = ({
     }
   }
 
+  function renderImage(src, index, label) {
+    if (index > 0) {
+      return <ReactCompareSliderImage src={src} />;
+    } else {
+      return (
+        <Box>
+          <ReactCompareSliderImage src={src} />
+          {label === 'before' && (
+            <Text
+              position="absolute"
+              top="40%"
+              left="5%"
+              paddingX="20px"
+              paddingY="10px"
+              bg="rgba(0, 0, 0, 0.6)"
+              color="white"
+            >
+              {label}
+            </Text>
+          )}
+          {label === 'after' && (
+            <Text
+              position="absolute"
+              top="40%"
+              right="5%"
+              paddingX="20px"
+              paddingY="10px"
+              bg="rgba(0, 0, 0, 0.6)"
+              color="white"
+            >
+              {label}
+            </Text>
+          )}
+        </Box>
+      );
+    }
+  }
+
   return (
     <AnimatePresence>
       <motion.div>
@@ -146,17 +189,11 @@ const SelectedImage = ({
       </div> */}
           {/* {renderContent()} */}
           {photo.src2 && showImageComparision ? (
-            <ReactCompareImage
-              // hover={true}
-              leftImageLabel={index === 0 ? 'before' : ''}
-              rightImageLabel={index === 0 ? 'after' : ''}
-              leftImage={photo.src2}
-              rightImage={photo.src}
-              sliderPositionPercentage={index === 0 ? 0.3 : 0.0}
-              rightImageCss={{
-                width: photo.src.width,
-                height: photo.src.height,
-              }}
+            <ReactCompareSlider
+              itemOne={renderImage(photo.src2, index, 'before')}
+              itemTwo={renderImage(photo.src, index, 'after')}
+              position={index === 0 ? 30 : 0}
+              onlyHandleDraggable={!isBrowser}
             />
           ) : (
             <img alt={photo.title} src={imageSrc} className="appGalleryImage" />
@@ -167,4 +204,18 @@ const SelectedImage = ({
   );
 };
 
+{
+  /* <ReactCompareImage
+              // hover={true}
+              leftImageLabel={index === 0 ? 'before' : ''}
+              rightImageLabel={index === 0 ? 'after' : ''}
+              leftImage={photo.src2}
+              rightImage={photo.src}
+              sliderPositionPercentage={index === 0 ? 0.3 : 0.0}
+              rightImageCss={{
+                width: photo.src.width,
+                height: photo.src.height,
+              }}
+            /> */
+}
 export default SelectedImage;

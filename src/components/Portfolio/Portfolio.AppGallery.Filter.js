@@ -49,7 +49,7 @@ const FilterButton = forwardRef((props, ref) => {
     <Button
       setHover={isBrowser ? true : false}
       ref={bRef}
-      minW={isBrowser ? '160px' : null}
+      minW={isBrowser || isTablet ? '160px' : '140px'}
       marginX={isBrowser ? '4px' : '3px'}
       variant={selected ? 'solid' : 'appOutline'}
       colorScheme={selected ? (isBrowser ? 'myblack' : 'teal') : 'gray'}

@@ -52,7 +52,7 @@ export const HomepageContact = () => {
   return (
     <Center margin="auto">
       <Flex
-        w={{ md: '70vw', base: '90vw' }}
+        w={{ md: '80vw', base: '90vw' }}
         marginTop="-10rem"
         backgroundColor="gray.600"
         paddingX={{ xl: '4rem', base: '0rem' }}

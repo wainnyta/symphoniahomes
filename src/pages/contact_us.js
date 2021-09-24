@@ -58,8 +58,8 @@ const ContactUs = () => {
             </Heading>
           </Box>
         </Box>
-        <Box maxW={{ xl: '70vw', base: '90%' }} marginX="auto" pt="30px">
-          <Text bgColor="orange.100" paddingY="15px" paddingX="10px">
+        <Box maxW={{ md: '80vw', base: '90%' }} marginX="auto" pt="30px">
+          <Text bgColor="orange.100" paddingY="15px" paddingX="15px">
             👋 &nbsp;&nbsp;Hello! If you're an&nbsp; <b>investor</b>&nbsp;and
             would like to receive future deals from us, please feel free to
             <span>
