@@ -75,3 +75,33 @@ button:focus {
 .bas-img-after-hide {
   /* transform: translateX(0%); */
 }
+
+/****************
+* STICKY (NAVBAR)
+*****************/
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.light-overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.sticky-logo {
+  width: 150px;
+}
+.logo {
+  width: 250px;
+}

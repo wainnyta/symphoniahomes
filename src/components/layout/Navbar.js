@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { CgMenuGridO } from 'react-icons/cg';
 import { IoCall } from 'react-icons/io5';
 import { MdCall } from 'react-icons/md';
+import { useState, useEffect } from 'react';
 
 const MenuItems = ({ textColor, children, href, isFocus }) => (
   <span>
@@ -64,20 +65,46 @@ const Navbar = ({
   focus,
   ...otherProps
 }) => {
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = useState(false);
+
+  const [scrolled, setScrolled] = useState(false);
+
   const handleToggle = () => {
     setShow(!show);
   };
 
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 200) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+  });
+
+  const getStickyClass = () => {
+    let stickyClass = '';
+    if (scrolled) {
+      stickyClass = isTransparent
+        ? 'sticky dark-overlay'
+        : 'sticky light-overlay';
+    }
+    return stickyClass;
+  };
+
   return (
-    <>
+    <div class={getStickyClass()}>
       <Flex
         as="nav"
         wrap="wrap"
         paddingX={'1.2rem'}
         bg={bgColor || 'white'}
         color="white"
-        pt={10}
+        pt={scrolled ? '0px' : '35px'}
+        pb={scrolled ? '0px' : '0px'}
         {...otherProps}
         direction="row"
       >
@@ -85,10 +112,20 @@ const Navbar = ({
           <a>
             <Flex align="center" mr={5} alignSelf="center" flexDirection="row">
               {isTransparent && (
-                <Image pl="0rem" w="250px" src="/images/Logo/whiteLogo_8.png" />
+                <Image
+                  class={scrolled ? 'sticky-logo' : 'logo'}
+                  pl="0rem"
+                  w="250px"
+                  src="/images/Logo/whiteLogo_8.png"
+                />
               )}
               {!isTransparent && (
-                <Image pl="0rem" w="250px" src="/images/Logo/blackLogo_8.png" />
+                <Image
+                  class={scrolled ? 'sticky-logo' : 'logo'}
+                  pl="0rem"
+                  w="250px"
+                  src="/images/Logo/blackLogo_8.png"
+                />
               )}
               {/* {!isTransparent && (
                 <>
@@ -178,7 +215,7 @@ const Navbar = ({
           </Box>
         </Box>
       </Flex>
-    </>
+    </div>
   );
 };
 
