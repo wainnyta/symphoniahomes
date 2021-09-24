@@ -156,7 +156,7 @@ const Navbar = ({
         <Box
           display={{ base: 'block', lg: 'none' }}
           onClick={handleToggle}
-          pt={{ base: '20px', lg: '0px' }}
+          pt={{ base: scrolled ? '8px' : '20px', lg: '0px' }}
         >
           <CgMenuGridO color={textColor || 'gray.900'} fontSize="2rem" />
         </Box>
