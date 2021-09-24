@@ -264,7 +264,7 @@ export const PortfolioAppGalleryMobile2 = () => {
           <RemoveScroll>
             <div
               style={{
-                zIndex: 1,
+                zIndex: 999,
                 position: 'fixed',
                 top: 0,
                 left: 0,
