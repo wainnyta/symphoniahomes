@@ -27,6 +27,7 @@ import {
   AlertDescription,
 } from '@chakra-ui/react';
 import { FaHandHolding, FaHandHoldingHeart, FaHandshake } from 'react-icons/fa';
+import { NextSeo } from 'next-seo';
 
 /*****************************
  *
@@ -36,6 +37,10 @@ import { FaHandHolding, FaHandHoldingHeart, FaHandshake } from 'react-icons/fa';
 const ContactUs = () => {
   return (
     <>
+      <NextSeo
+        title="Contact Us - Symphonia Homes - We Buy Houses In Winnipeg"
+        description="Contact Symphonia Homes! We are a Winnipeg company specalized in buying outdated houses, then rennovating and bringing them back to life! We buy houses in Winnipeg - Any Condition - Quick, Safe and Simple!"
+      />
       <header>
         <Box maxW="1600px" margin="auto" marginBottom="2rem">
           <Navbar

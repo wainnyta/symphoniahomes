@@ -8,6 +8,7 @@ import Navbar from '../components/layout/Navbar';
 import { useRef } from 'react';
 import emailjs from 'emailjs-com';
 import { install } from 'resize-observer';
+import { NextSeo } from 'next-seo';
 
 if (typeof window !== 'undefined') {
   install();
@@ -18,6 +19,10 @@ const Index = () => {
 
   return (
     <>
+      <NextSeo
+        title="Symphonia Homes - We Buy Houses In Winnipeg - Any Condition - Quick, Safe and Simple!"
+        description="A Winnipeg company specalized in buying outdated houses, then rennovating and bringing them back to life! We buy houses in Winnipeg - Any Condition - Quick, Safe and Simple!"
+      />
       {/* <Box maxW="1600px" margin="auto" marginBottom="2rem"> */}
       {/* <Navbar
         bgColor="transparent"
