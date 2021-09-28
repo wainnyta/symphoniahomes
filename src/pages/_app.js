@@ -10,6 +10,7 @@ import '../../src/styles.css';
 import { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
 import Script from 'next/script';
+import { DefaultSeo } from 'next-seo';
 
 const tagManagerArgs = {
   gtmId: process.env.NEXT_PUBLIC_GTM_TAG,

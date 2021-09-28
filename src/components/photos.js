@@ -64,21 +64,21 @@ export const photos = [
     src: '/images/ProjectCapulet/13-Master1.jpg',
     width: 4.5,
     height: 3,
-    src2: '/images/BeforeProjectCapulet/MasterBedroom.jpeg',
+    src2: '/images/BeforeProjectCapulet/MasterBedroom.jpg',
   },
 
   {
     src: '/images/ProjectCapulet/15-HalfBath.jpg',
     width: 4.5,
     height: 3,
-    src2: '/images/BeforeProjectCapulet/HalfBath2.jpeg',
+    src2: '/images/BeforeProjectCapulet/HalfBath2.jpg',
   },
   //here
   {
     src: '/images/ProjectCapulet/8-Dining1.jpg',
     width: 4.5,
     height: 3,
-    src2: '/images/BeforeProjectCapulet/DiningRoom.jpeg',
+    src2: '/images/BeforeProjectCapulet/DiningRoom.jpg',
   },
   {
     src: '/images/ProjectDumoulin/deck 2.jpg',
@@ -95,6 +95,6 @@ export const photos = [
     src: '/images/ProjectCapulet/21-Basement3.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectCapulet/BasementFireplace.jpeg',
+    src2: '/images/BeforeProjectCapulet/BasementFireplace.jpg',
   },
 ];

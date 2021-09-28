@@ -10,11 +10,13 @@ import { PortfolioAppGalleryMobile2 } from '../components/Portfolio/Portfolio.Ap
 import { PortfolioGallery } from '../components/Portfolio/Portfolio.Gallery';
 import { PortfolioImageGallery } from '../components/Portfolio/Portfolio.ImageGallery';
 import { NextSeo } from 'next-seo';
+import openGraph from '../components/AppSEO';
 
 const Porfolio2 = () => {
   return (
     <>
       <NextSeo
+        openGraph={openGraph}
         title="Portfolio - Symphonia Homes - We Buy Houses In Winnipeg"
         description="Showcases for our past rennovation. Symphonia Homes is a Winnipeg company specalized in buying outdated houses, then rennovating and bringing them back to life! We buy houses in Winnipeg - Any Condition - Quick, Safe and Simple!"
       />

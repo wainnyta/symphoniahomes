@@ -46,6 +46,7 @@ const photos = [
   },
   {
     src: '/images/ProjectCapulet/3-Front3.jpg',
+    src2: '/images/BeforeProjectCapulet/Front_copy.jpg',
     width: 4.6,
     height: 3,
     displayTag: HOUSE_FRONT,
@@ -117,7 +118,7 @@ const photos = [
     src: '/images/ProjectCapulet/10-Kitchen2.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectCapulet/Kitchen5.jpeg',
+    src2: '/images/BeforeProjectCapulet/Kitchen5.jpg',
     displayTag: KITCHEN,
     description:
       'This is the first project that we opted for glossy kitchen cabinets and we totally loved how the new kitchen looked. A white shiny kitchen in combination with white cabinet hardware, grey marble mosaic tile, stainless steel and quartz looks sleek and extremely elegant.',
@@ -128,7 +129,7 @@ const photos = [
     src: '/images/ProjectCapulet/10-Kitchen3.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectCapulet/Kitchen3.jpeg',
+    src2: '/images/BeforeProjectCapulet/Kitchen3.jpg',
     displayTag: KITCHEN,
     description:
       'The completely open space allows homeowners to stay in contact and interact with guests and other family members while they are preparing the meals.',
@@ -139,7 +140,7 @@ const photos = [
     src: '/images/ProjectCapulet/10-Kitchen4.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectCapulet/Kitchen2.jpeg',
+    src2: '/images/BeforeProjectCapulet/Kitchen2.jpg',
     displayTag: KITCHEN,
     description:
       'Another view of this modern, open kitchen where you can better visualize what are the two walls that got removed.',
@@ -163,7 +164,7 @@ const photos = [
     src: '/images/ProjectCapulet/8-Dining1.jpg',
     width: 4.5,
     height: 3,
-    src2: '/images/BeforeProjectCapulet/DiningRoom.jpeg',
+    src2: '/images/BeforeProjectCapulet/DiningRoom.jpg',
     displayTag: DINING_ROOM,
     description:
       'Behind the glass door in this dining space is the pantry that we added during our renovation. We always think a lot about how we can add more storage to every house that we worked on.',
@@ -176,7 +177,7 @@ const photos = [
     src: '/images/ProjectCapulet/12-MainBath.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectCapulet/MainBath2.jpeg',
+    src2: '/images/BeforeProjectCapulet/MainBath2.jpg',
     displayTag: BATHROOM,
     description:
       'When we first took over the house, this bathroom had a weird layout where the toilet positioned that it was facing the bathroom door. We relocated the vanity to where the toilet had been, and moved the toilet to the left of the vanity. With this simple switch, the vanity is now facing at the entrance and that made a huge impact on the flow and also offered a nice view when someone accesses the bathroom entrance.',
@@ -187,7 +188,7 @@ const photos = [
     src: '/images/ProjectCapulet/15-HalfBath.jpg',
     width: 4.5,
     height: 3,
-    src2: '/images/BeforeProjectCapulet/HalfBath2.jpeg',
+    src2: '/images/BeforeProjectCapulet/HalfBath2.jpg',
     displayTag: BATHROOM,
     description:
       'We love this bathroom a lot. Even though the space is small, the grey feature wall in combination with the staging wall art and the stylish mirror definitely gives this small bathroom a more interesting look without breaking the budget.',
@@ -222,7 +223,7 @@ const photos = [
     src: '/images/ProjectCapulet/13-Master1.jpg',
     width: 4.5,
     height: 3,
-    src2: '/images/BeforeProjectCapulet/MasterBedroom.jpeg',
+    src2: '/images/BeforeProjectCapulet/MasterBedroom.jpg',
     displayTag: BEDROOM,
     tag: ['bedroom', 'master bedroom'],
     project: PROJECT_CRESTVIEW_2020,
@@ -231,7 +232,7 @@ const photos = [
     src: '/images/ProjectCapulet/18-Room2.jpg',
     width: 4.5,
     height: 3,
-    src2: '/images/BeforeProjectCapulet/Bedroom3.jpeg',
+    src2: '/images/BeforeProjectCapulet/Bedroom3.jpg',
     displayTag: BEDROOM,
     tag: ['bedroom'],
     project: PROJECT_CRESTVIEW_2020,
@@ -277,7 +278,7 @@ const photos = [
     src: '/images/ProjectCapulet/17-Room1_1.jpg',
     width: 4.5,
     height: 3,
-    src2: '/images/BeforeProjectCapulet/Bedroom2.jpeg',
+    src2: '/images/BeforeProjectCapulet/Bedroom2.jpg',
     displayTag: OFFICE_ROOM,
     tag: ['bedroom', 'office'],
     project: PROJECT_CRESTVIEW_2020,
@@ -298,7 +299,7 @@ const photos = [
     src: '/images/ProjectCapulet/21-Basement3.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectCapulet/BasementFireplace.jpeg',
+    src2: '/images/BeforeProjectCapulet/BasementFireplace.jpg',
     displayTag: BASEMENT,
     description:
       'The fireplace that you saw in this picture just stopped working before the house was listed for sale. We decided to have the fireplace fixed because we wanted to keep the gas fireplace, even though replacing it with an electric fireplace is more cost-saving option, because we give function and design than profit if we have to choose.',
@@ -344,7 +345,7 @@ const photos = [
     src: '/images/ProjectCapulet/27-BasementLaundryRoom.jpg',
     width: 4.5,
     height: 3,
-    src2: '/images/BeforeProjectCapulet/BasementUtilB.jpeg',
+    src2: '/images/BeforeProjectCapulet/BasementUtilB.jpg',
     displayTag: LAUNDRY_ROOM,
     tag: ['basement', 'utility'],
     description:

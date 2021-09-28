@@ -9,11 +9,13 @@ import { useRef } from 'react';
 import emailjs from 'emailjs-com';
 import { install } from 'resize-observer';
 import { NextSeo } from 'next-seo';
+import openGraph from '../components/AppSEO';
 
 if (typeof window !== 'undefined') {
   install();
 }
 
+console.log(openGraph);
 const Index = () => {
   const formRef = useRef(null);
 
@@ -21,7 +23,8 @@ const Index = () => {
     <>
       <NextSeo
         title="Symphonia Homes - We Buy Houses In Winnipeg - Any Condition - Quick, Safe and Simple!"
-        description="A Winnipeg company specalized in buying outdated houses, then rennovating and bringing them back to life! We buy houses in Winnipeg - Any Condition - Quick, Safe and Simple!"
+        description={openGraph.description}
+        openGraph={openGraph}
       />
       {/* <Box maxW="1600px" margin="auto" marginBottom="2rem"> */}
       {/* <Navbar
