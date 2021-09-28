@@ -68,7 +68,7 @@ const photos = [
   },
   {
     src: '/images/ProjectDumoulin/front 2.jpg',
-    src2: '/images/BeforeProjectDumoulin/houseFront1.png',
+    src2: '/images/BeforeProjectDumoulin/houseFront1.jpg',
     width: 6,
     height: 4,
     displayTag: HOUSE_FRONT,
@@ -208,7 +208,7 @@ const photos = [
   },
   {
     src: '/images/ProjectDumoulin/bathroom1.jpg',
-    src2: '/images/BeforeProjectDumoulin/bathroom3.png',
+    src2: '/images/BeforeProjectDumoulin/bathroom3.jpg',
     width: 6,
     height: 4,
     displayTag: BATHROOM,
@@ -248,7 +248,7 @@ const photos = [
   },
   {
     src: '/images/ProjectDumoulin/bedroomA 1.jpg',
-    src2: '/images/BeforeProjectDumoulin/bedroom1.png',
+    src2: '/images/BeforeProjectDumoulin/bedroom1.jpg',
     width: 6,
     height: 4,
     displayTag: BEDROOM,
@@ -354,7 +354,7 @@ const photos = [
   },
   {
     src: '/images/ProjectDumoulin/laundryroom 1.jpg',
-    src2: '/images/BeforeProjectDumoulin/basement3.png',
+    src2: '/images/BeforeProjectDumoulin/basement3.jpg',
     width: 6,
     height: 4,
     displayTag: LAUNDRY_ROOM,
@@ -428,7 +428,7 @@ const photos = [
     src: '/images/ProjectCapulet/34-Backyard4.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectCapulet/Garage.png',
+    src2: '/images/BeforeProjectCapulet/Garage.jpg',
     displayTag: GARAGE,
     tag: ['outdoor', 'backyard', 'garage'],
     description:
@@ -439,7 +439,7 @@ const photos = [
     src: '/images/ProjectDumoulin/garage.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectDumoulin/garage.png',
+    src2: '/images/BeforeProjectDumoulin/garage.jpg',
     displayTag: GARAGE,
     tag: ['outdoor', 'backyard', 'garage'],
     description:
