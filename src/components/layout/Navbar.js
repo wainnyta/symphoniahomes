@@ -49,6 +49,7 @@ const MenuItems = ({ textColor, children, href, isFocus }) => (
         font-size: 1rem;
         font-weight: bolder;
         cursor: auto;
+        pointer-events: none;
       }
     `}</style>
   </span>
