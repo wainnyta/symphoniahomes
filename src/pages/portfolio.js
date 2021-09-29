@@ -45,7 +45,9 @@ const Porfolio2 = () => {
         >
           {isBrowser && (
             <Box marginX="auto" textAlign="left" paddingY="2rem">
-              <Heading color="myblack.600">Transformation Gallery</Heading>
+              <Heading color="myblack.600" textAlign="center">
+                Transformation Gallery
+              </Heading>
             </Box>
           )}
           {!isBrowser && (
@@ -62,6 +64,7 @@ const Porfolio2 = () => {
                 fontWeight="900"
                 textTransform="uppercase"
                 letterSpacing="2px"
+                textAlign="center"
               >
                 Transformation Gallery
               </Heading>
