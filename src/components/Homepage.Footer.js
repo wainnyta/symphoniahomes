@@ -72,6 +72,9 @@ export const HomepageFooter = () => {
         </Flex>
       </Box>
       <style jsx>{`
+        .footer-link {
+          color: rgb(170, 208, 205, 1);
+        }
         .footer-link:hover {
           text-decoration: underline;
         }
