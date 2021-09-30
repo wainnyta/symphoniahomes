@@ -27,6 +27,11 @@ function MyApp({ Component, pageProps }) {
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
       />
+      {/* Global Site Tag (gtag.js) - Another Google Analytics */}
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_UA}`}
+      />
       <Script strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -34,6 +39,8 @@ function MyApp({ Component, pageProps }) {
           gtag('js', new Date());
 
           gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
+
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_UA}');
         `}
       </Script>
 
