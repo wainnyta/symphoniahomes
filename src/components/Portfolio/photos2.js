@@ -369,7 +369,7 @@ const photos = [
     src: '/images/ProjectCapulet/32-Backyard1.jpg',
     width: 6,
     height: 4,
-    src2: '/images/BeforeProjectCapulet/backyard.jpg',
+    src2: '/images/BeforeProjectCapulet/Backyard.jpg',
     displayTag: HOUSE_BACK,
     tag: ['outdoor', 'backyard'],
     description:
