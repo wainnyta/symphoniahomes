@@ -8,6 +8,7 @@ import theme from '../theme';
 import 'swiper/swiper-bundle.min.css';
 import '../../src/styles.css';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import TagManager from 'react-gtm-module';
 import Script from 'next/script';
 import { DefaultSeo } from 'next-seo';
@@ -17,9 +18,26 @@ const tagManagerArgs = {
 };
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
   useEffect(() => {
     TagManager.initialize(tagManagerArgs);
   }, []);
+
+  useEffect(() => {
+    console.error('HEHE');
+    import('react-facebook-pixel')
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        ReactPixel.init(process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID); // facebookPixelId
+        ReactPixel.pageView();
+
+        router.events.on('routeChangeComplete', () => {
+          ReactPixel.pageView();
+        });
+      });
+  }, [router.events]);
+
   return (
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
