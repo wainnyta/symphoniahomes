@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
-    console.error('HEHE');
     import('react-facebook-pixel')
       .then((x) => x.default)
       .then((ReactPixel) => {

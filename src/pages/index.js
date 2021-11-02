@@ -10,6 +10,7 @@ import emailjs from 'emailjs-com';
 import { install } from 'resize-observer';
 import { NextSeo } from 'next-seo';
 import defaultConfig from '../components/AppSEO';
+import Head from 'next/head';
 
 if (typeof window !== 'undefined') {
   install();
@@ -20,6 +21,12 @@ const Index = () => {
 
   return (
     <>
+      <Head>
+        <meta
+          name="facebook-domain-verification"
+          content="wgah3g9pff85f8ptd4av2g7sczbl6z"
+        />
+      </Head>
       <NextSeo
         title="We Buy Houses In Winnipeg - Any Condition - Quick, Safe and Simple - Symphonia Homes"
         description={defaultConfig.openGraph.description}
